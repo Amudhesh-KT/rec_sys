@@ -10,20 +10,20 @@ import { faCross, faEnvelope, faEye, faWarning } from "@fortawesome/free-solid-s
 
 export const Login = () => {
   const navigate = useNavigate();
-  // useEffect(() => {
-  //     fetchItems();
-  //   }, []);
+  useEffect(() => {
+      fetchItems();
+    }, []);
     const [visible, setVisible] = React.useState(false);
     const [items, setItems] = useState([]);
-    // const fetchItems = async () => {
-    //   const data = await fetch(
-    //     "http://127.0.0.1:5000/api/user"
-    //   );
-    //     // console.log(data)
-    //   const items = await data.json();
-    //   console.log(items);
-    //   setItems(items);
-    // };
+    const fetchItems = async () => {
+      const data = await fetch(
+        "http://127.0.0.1:8000/user"
+      );
+        // console.log(data)
+      const items = await data.json();
+      console.log(items);
+      setItems(items);
+    };
 const [username, setusername] = useState("");
 const [password, setpassword] = useState("");
 const [authenticated, setauthenticated] = useState(
@@ -38,7 +38,7 @@ const handleSubmit = (e) => {
   if (account[0] === true && account_pass[0] === true) {
     localStorage.setItem("authenticated", true);
     console.log("success")
-    navigate("/upload");
+    navigate("/home");
 
   }
   else{
