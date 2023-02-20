@@ -44,10 +44,8 @@ export const Login = () => {
     console.log(res.data)
     // let User_ID = res.data.id
     console.log(res.data.id)
-    console.log(userID)
-    setUserID(res.data.id)
-    console.log(userID)
- 
+    
+    // setUserID(res.data.id) 
   }
 
   return (

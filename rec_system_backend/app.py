@@ -70,8 +70,6 @@ class User(BaseModel):
     email: str
     userID: str
 
-
-
 @app.get('/')
 async def index():
     return {'message':'hello, world'}
@@ -82,8 +80,6 @@ async def welcome():
 
 @app.get('/rec')
 async def recom():
-    # pivot_df_1 = pd.read_csv('pivot_df (1).csv')
-    # preds_df_1 = pd.read_csv('preds_df (1).csv')
 
     def recommend_items_user(userID):
         pivot_df =pivot_df_1
@@ -292,8 +288,58 @@ async def login(username:str,password:str):
     print(user['password'])
     print(user['id'])
 
+    def recommend_items_user(userID):
+        pivot_df =pivot_df_1
+        preds_df = preds_df_1 
+        num_recommendations = 5
+        # index starts at 0  
+        user_idx = userID-1 
+        # Get and sort the user's ratings
+        sorted_user_ratings = pivot_df.iloc[user_idx].sort_values(ascending=False)
+        sorted_user_predictions = preds_df.iloc[user_idx].sort_values(ascending=False)
 
-    return {"username": username, "password": password, "id": user['id']} 
+        temp = pd.concat([sorted_user_ratings, sorted_user_predictions], axis=1)
+
+        temp.index.name = 'Recommended Items'
+        temp.columns = ['user_ratings', 'user_predictions']
+
+        temp = temp.loc[temp.user_ratings == 0]  
+
+        temp = temp.sort_values('user_predictions', ascending=False)
+
+        rec_df = temp.head(num_recommendations)
+        rec_df.reset_index(inplace=True)
+        rec_list = rec_df.values.tolist()
+               
+        rec_proudcts=[]
+        for i in range(5):
+            rec_proudcts.append(rec_list[i][0])
+
+        print(rec_proudcts)
+        return rec_proudcts
+
+    if (user['password'] == password):
+        flag = 1
+        # user_id = user['id']
+        print("login success")
+        rec = recommend_items_user(user['id'])
+
+        db["RecList"].insert_one({
+        "User_ID": user['id'],
+        "rec_list": rec                                 
+        })
+
+    
+    
+    else:
+        flag = 0
+        return "invalid username or password"
+    
+
+    
+
+
+    return {"username": username, "password": password, "id": user['id'], "flag": flag} 
 
 @app.post('/register')
 async def create_user(request: Request):
