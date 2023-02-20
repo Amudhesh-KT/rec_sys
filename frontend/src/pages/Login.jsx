@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import User_context from "../components/User_context.jsx"
 
 import axios from "axios"
+import "../App.css"
 
 
 export const Login = () => {
@@ -72,7 +73,7 @@ export const Login = () => {
       </p>
       <footer>
         <p>First time? <Link to="/register">Create an account</Link>.</p>
-        <p><Link to="/">Back to Homepage</Link>.</p>
+        <p><Link to="/home">Back to Homepage</Link>.</p>
       </footer>
     </div>
   )
