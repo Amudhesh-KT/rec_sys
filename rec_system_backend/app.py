@@ -2,6 +2,7 @@
 
 #AMudhesh test for git
 
+from requests import request
 import uvicorn
 
 from fastapi import FastAPI,File,UploadFile,Form
@@ -67,6 +68,7 @@ class User(BaseModel):
     company: str
     password: str
     email: str
+    userID: str
 
 
 
@@ -176,110 +178,122 @@ async def recom():
 
     return {"message":"Go back and see to your recommendations"}
 
-@app.post("/login")
-async def login(request:Request):
+# @app.post("/login")
+# async def login(request:Request):
+
+#     collection = db["UserData"]
+
+#     data=await request.json()
+#     user_name =data["username"]
+#     pass_word = data["password"]
+#     print(user_name)
+#     print(pass_word)
+#     user = collection.find_one({"username":user_name})
+#     # print(user['username'])
+#     # print(user['password'])
+#     # print("Im printing userid")
+#     print(user['id'])
+
+#     if (user['password'] == pass_word):
+#             flag = True
+#             user_id = user['id']
+#             print("login success")
+        
+#     def recommend_items_user(userID):
+#         pivot_df =pivot_df_1
+#         preds_df = preds_df_1 
+#         num_recommendations = 5
+#         # index starts at 0  
+#         user_idx = userID-1 
+#         # Get and sort the user's ratings
+#         sorted_user_ratings = pivot_df.iloc[user_idx].sort_values(ascending=False)
+#         # print("Im sorted user ratings \n")
+#         # print(sorted_user_ratings.head(5))
+#         # sorted_user_ratings.to_json('demo.json')
+#         #sorted_user_ratings
+#         sorted_user_predictions = preds_df.iloc[user_idx].sort_values(ascending=False)
+#         # sorted_user_predictions.to_json('demo2.json')
+
+#         # print("\n")
+#         # print("Im sorted user predictions \n")
+#         # print(sorted_user_predictions.head(5))
+#         #sorted_user_predictions
+#         temp = pd.concat([sorted_user_ratings, sorted_user_predictions], axis=1)
+#         # temp.to_json('demo',orient='records')
+#         # print("\n")
+#         # print("Im temp \n")
+#         # print(temp.head(5))
+#         temp.index.name = 'Recommended Items'
+#         temp.columns = ['user_ratings', 'user_predictions']
+#         # print("\n")
+#         # print('\n')
+#         # print("temp of user ratings")
+#         # print("\n")
+#         # print('\n')
+#         # print(temp.user_ratings)
+#         # print(temp.info())
+#         # print("Im temp after assigning cols \n")
+#         # temp.user_ratings = temp.user_ratings.astype(float)
+#         # print(temp.head(5))
+#         # temp.to_csv('demo')
+#         temp = temp.loc[temp.user_ratings == 0]  
+#         # print("\n")
+#         # print("after filtering user ratings as 0 \n")
+#         # print(temp.head(5))
+#         temp = temp.sort_values('user_predictions', ascending=False)
+#         # print("\n")
+#         # print("Im temp after sorting \n")
+#         # print(temp.head(5))
+#         # print('\nBelow are the recommended items for user(user_id = {}):\n'.format(userID))
+        
+#         # print(temp.head(num_recommendations))
+
+#         rec_df = temp.head(num_recommendations)
+#         rec_df.reset_index(inplace=True)
+#         rec_list = rec_df.values.tolist()
+#         print(rec_list)
+
+#         # print("\n line break")
+
+        
+#         rec_proudcts=[]
+#         for i in range(5):
+#             rec_proudcts.append(rec_list[i][0])
+#             # print(rec_list[i][0])
+#         # print(rec_proudcts)
+#         # print("\n")
+
+#         # return temp.head(num_recommendations)  
+#         return rec_proudcts
+    
+#     rec = recommend_items_user(user['id'])
+#     # print("\n List of recommended products inside the function \n")
+#     # print(rec)
+
+#     db["RecList"].insert_one({
+#         "User_ID": user['id'],
+#         "rec_list": rec                                 
+#     })
+#     # resp = jsonify("user inputs added succesfully")
+#     # resp.status_code = 200
+
+#     # print(resp.status_code)
+
+#     # return resp
+
+#     return {"username": user_name, "password": pass_word, "UserID": user['id'] }
+
+@app.get('/login')
+async def login(username:str,password:str):
 
     collection = db["UserData"]
-
-    data=await request.json()
-    user_name =data["username"]
-    pass_word = data["password"]
-    print(user_name)
-    print(pass_word)
-    user = collection.find_one({"username":user_name})
-    # print(user['username'])
-    # print(user['password'])
-    # print("Im printing userid")
+    user = collection.find_one({"username":username})
+    print(user['username'])
+    print(user['password'])
     print(user['id'])
 
-    if (user['password'] == pass_word):
-            flag = True
-            user_id = user['id']
-            print("login success")
-        
-    def recommend_items_user(userID):
-        pivot_df =pivot_df_1
-        preds_df = preds_df_1 
-        num_recommendations = 5
-        # index starts at 0  
-        user_idx = userID-1 
-        # Get and sort the user's ratings
-        sorted_user_ratings = pivot_df.iloc[user_idx].sort_values(ascending=False)
-        # print("Im sorted user ratings \n")
-        # print(sorted_user_ratings.head(5))
-        # sorted_user_ratings.to_json('demo.json')
-        #sorted_user_ratings
-        sorted_user_predictions = preds_df.iloc[user_idx].sort_values(ascending=False)
-        # sorted_user_predictions.to_json('demo2.json')
 
-        # print("\n")
-        # print("Im sorted user predictions \n")
-        # print(sorted_user_predictions.head(5))
-        #sorted_user_predictions
-        temp = pd.concat([sorted_user_ratings, sorted_user_predictions], axis=1)
-        # temp.to_json('demo',orient='records')
-        # print("\n")
-        # print("Im temp \n")
-        # print(temp.head(5))
-        temp.index.name = 'Recommended Items'
-        temp.columns = ['user_ratings', 'user_predictions']
-        # print("\n")
-        # print('\n')
-        # print("temp of user ratings")
-        # print("\n")
-        # print('\n')
-        # print(temp.user_ratings)
-        # print(temp.info())
-        # print("Im temp after assigning cols \n")
-        # temp.user_ratings = temp.user_ratings.astype(float)
-        # print(temp.head(5))
-        # temp.to_csv('demo')
-        temp = temp.loc[temp.user_ratings == 0]  
-        # print("\n")
-        # print("after filtering user ratings as 0 \n")
-        # print(temp.head(5))
-        temp = temp.sort_values('user_predictions', ascending=False)
-        # print("\n")
-        # print("Im temp after sorting \n")
-        # print(temp.head(5))
-        # print('\nBelow are the recommended items for user(user_id = {}):\n'.format(userID))
-        
-        # print(temp.head(num_recommendations))
-
-        rec_df = temp.head(num_recommendations)
-        rec_df.reset_index(inplace=True)
-        rec_list = rec_df.values.tolist()
-        print(rec_list)
-
-        # print("\n line break")
-
-        
-        rec_proudcts=[]
-        for i in range(5):
-            rec_proudcts.append(rec_list[i][0])
-            # print(rec_list[i][0])
-        # print(rec_proudcts)
-        # print("\n")
-
-        # return temp.head(num_recommendations)  
-        return rec_proudcts
-    
-    rec = recommend_items_user(user['id'])
-    # print("\n List of recommended products inside the function \n")
-    # print(rec)
-
-    db["RecList"].insert_one({
-        "User_ID": user['id'],
-        "rec_list": rec                                 
-    })
-    # resp = jsonify("user inputs added succesfully")
-    # resp.status_code = 200
-
-    # print(resp.status_code)
-
-    # return resp
-
-    return {"username": user_name, "password": pass_word, "UserID": user['id'] }
+    return {"username": username, "password": password, "id": user['id']} 
 
 @app.post('/register')
 async def create_user(request: Request):
@@ -371,28 +385,28 @@ async def pop_model():
 
 # posting images in mongo db
 
-@app.post("/readimg") 
-def imageReader(product_id: str,imgfile:UploadFile=File()):
-    # product_id = product_id
-    filename = imgfile.filename
-    # print(filename) 
-    imgbytes = base64.b64encode(imgfile.file.read()) 
-    imgstr = str(imgbytes,"utf-8") 
+# @app.post("/readimg") 
+# def imageReader(product_id: str,imgfile:UploadFile=File()):
+#     # product_id = product_id
+#     filename = imgfile.filename
+#     # print(filename) 
+#     imgbytes = base64.b64encode(imgfile.file.read()) 
+#     imgstr = str(imgbytes,"utf-8") 
 
-    Product_Img = db["ProductImg"].insert_one(
-        {
+#     Product_Img = db["ProductImg"].insert_one(
+#         {
         
-        "str_base64":imgstr,
-        "Product_ID": product_id,
+#         "str_base64":imgstr,
+#         "Product_ID": product_id,
         
          
-        }
-        )
+#         }
+#         )
 	
 
-    print(imgstr)
-    print(filename)
-    return "hello"
+#     print(imgstr)
+#     print(filename)
+#     return "hello"
 
 
 if __name__ == '__main__':
