@@ -68,8 +68,6 @@ class User(BaseModel):
     password: str
     email: str
 
-
-
 @app.get('/')
 async def index():
     return {'message':'hello, world'}
@@ -80,8 +78,6 @@ async def welcome():
 
 @app.get('/rec')
 async def recom():
-    # pivot_df_1 = pd.read_csv('pivot_df (1).csv')
-    # preds_df_1 = pd.read_csv('preds_df (1).csv')
 
     def recommend_items_user(userID):
         pivot_df =pivot_df_1
