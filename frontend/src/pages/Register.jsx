@@ -33,6 +33,7 @@ const Register = () => {
           console.log(response);
           flag = true
           alert(response);
+          
         })
         .catch((error) => {
           alert(error);
