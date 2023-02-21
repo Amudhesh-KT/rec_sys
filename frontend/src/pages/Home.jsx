@@ -1,5 +1,6 @@
 import {React,useEffect,useContext,useState} from 'react'
 import User_context from '../components/User_context'
+import { Product } from '../components/Product'
 
 import axios from 'axios'
 
@@ -9,6 +10,8 @@ const Home = () => {
 
   const { userID } = useContext(User_context)
   const [Final_out, setFinal_out] = useState([]);
+
+  const arr = [{"name":"Ila"},{"name":"Amu"},{"name":"Diwa"}]
 
   
   useEffect(() => {
@@ -37,7 +40,14 @@ const Home = () => {
 
    
 
-    <div>Home</div>
+    <div>Home
+      {
+        arr.map((data) => {
+          return <Product data={data}/>
+        })
+      }
+  
+    </div>
   )
 }
 
