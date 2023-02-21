@@ -29,6 +29,9 @@ const Home = () => {
     setFinal_out(items)
   }
 
+  console.log("final out")
+  console.log(Final_out)
+
   return (
 
    
