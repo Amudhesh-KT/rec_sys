@@ -2,7 +2,6 @@
 
 #AMudhesh test for git
 
-from requests import request
 import uvicorn
 
 from fastapi import FastAPI,File,UploadFile,Form
@@ -396,6 +395,7 @@ async def Recommmendation_list(userId:int):
     
     return a
 
+#endpoint for popular product recommendation
 @app.get('/pop_list')
 async def pop_model():
     pop_list_df = df.groupby('productId').agg({'userId': 'count'}).reset_index()
