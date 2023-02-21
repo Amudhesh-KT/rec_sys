@@ -23,6 +23,10 @@ export const Login = () => {
   const { setUserID, userID } = useContext(User_context)
 
 
+  useEffect(() => {
+    console.log(userID)
+  }, [userID])
+  
   // function to check userid and password
   const caller = async () => {
 
@@ -44,8 +48,10 @@ export const Login = () => {
     console.log(res.data)
     // let User_ID = res.data.id
     console.log(res.data.id)
+    // console.log(userID)
     
-    // setUserID(res.data.id) 
+    setUserID(res.data.id)
+    navigate('/home') 
   }
 
   return (
