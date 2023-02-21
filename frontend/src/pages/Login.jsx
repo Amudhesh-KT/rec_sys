@@ -6,6 +6,9 @@ import axios from "axios"
 import "../App.css"
 
 
+import "../styles/Login.css"
+
+
 export const Login = () => {
   const navigate = useNavigate();
 
