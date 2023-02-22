@@ -10,7 +10,7 @@ const Home = () => {
 
   const { userID } = useContext(User_context)
   const [Final_out, setFinal_out] = useState([]);
-
+ const [pop_list, setpop_list] = useState([]);
   
   useEffect(() => {
     
@@ -55,11 +55,11 @@ const Home = () => {
    
 
     <div>Home
-      {
+      {/* {
         arr.map((data) => {
           return <Product data={data}/>
         })
-      }
+      } */}
   
     </div>
   )
