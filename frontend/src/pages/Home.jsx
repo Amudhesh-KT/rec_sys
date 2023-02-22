@@ -48,6 +48,9 @@ const Home = () => {
   console.log("popularity recommendation list")
   console.log(pop_list)
 
+  console.log("test")
+  console.log(pop_list[0]["product_id"])
+
 
 
   return (
