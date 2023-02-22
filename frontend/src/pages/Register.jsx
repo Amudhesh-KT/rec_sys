@@ -10,6 +10,8 @@ import {
   } from "react-router-dom";
 import "../App.css"
 
+import "../styles/Register.css"
+
 
 const Register = () => {
 
