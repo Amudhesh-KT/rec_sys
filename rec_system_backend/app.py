@@ -416,8 +416,21 @@ async def pop_model():
     for i in range(5):
         pop_rec_product_list.append(pop_final_list[i][1])                   
 
-    print(pop_rec_product_list)
+    # print(pop_rec_product_list)
 
+    #loop for product iteration 
+    poplist = []
+    for i in pop_rec_product_list:
+        details = db["Product"].find_one({"Product_ID":i})
+        poplist.append({
+            "product_id":details["Product_ID"],
+            "product_name":details["Product_name"],
+            "product_img": details["str_base64"],
+    print(pop_rec_product_list)
+            "Product_description": (details["Product_price"].strip())
+        })
+
+    # print(poplist)
 
 
     return pop_rec_product_list
