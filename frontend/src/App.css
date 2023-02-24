@@ -24,6 +24,7 @@ body {
 .container {
   max-width: 90%;
   margin: auto;
+  height: auto;
 }
 .d_flex {
   display: flex;
@@ -124,6 +125,9 @@ button {
 .heading i {
   color: #e94560;
   margin: 10px;
+}
+.head{
+  size: 0;
 }
 .discount {
   position: absolute;
@@ -389,7 +393,7 @@ form span {
 }
   
   html, body , .container {
-    height: 100%;
+    height: 10%;
     margin: 0;
   }
 

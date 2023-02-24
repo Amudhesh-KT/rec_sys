@@ -65,17 +65,17 @@ function App() {
   }
   return (
     <Router>
-    <div className="App">
-      <Routes>
+      <div className="App">
+        <Routes>
           <Route path='/' element ={<><Header/><productItems/><Home/> <addToCart/> <shopItems/><Footer /></>} />
           <Route path='/navbar' element={<><NavBar /></>} />
           <Route path='/login' element={<><Login /></>} />
           <Route path='/home' element={<><Home /></>} />
           <Route path='/register' element={<Register />} />
           <Route path='/product' element={<Product />} />
-      </Routes>
+        </Routes>
       </div>
-      </Router>
+    </Router>
   );
 }
 

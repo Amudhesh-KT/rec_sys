@@ -377,7 +377,7 @@ async def Recommmendation_list(userId:int):
     # loop for product iteration 
     a = []
     for i in json_list:
-        details = db["Product1"].find_one({"Product_ID":i})
+        details = db["Product"].find_one({"Product_ID":i})
         a.append({
             "product_id":details["Product_ID"],
             "product_name":details["Product_name"],
@@ -426,14 +426,14 @@ async def pop_model():
             "product_id":details["Product_ID"],
             "product_name":details["Product_name"],
             "product_img": details["str_base64"],
-    print(pop_rec_product_list)
+            "Product_price": details["Product_description"],
             "Product_description": (details["Product_price"].strip())
         })
 
     # print(poplist)
 
 
-    return pop_rec_product_list
+    return poplist
 
 
 
