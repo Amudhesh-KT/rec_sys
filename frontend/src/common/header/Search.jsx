@@ -15,11 +15,11 @@ const Search = ({ CartItem }) => {
 
   return (
     <>
-      <section className='search' style={{ height: "10%",marginTop:"1%" }}>
+      <section className='search' style={{ height: "13%",marginTop:"0%" }}>
         <div className='container c_flex' style={{ width: "100%", height: "100%" }}>
           <div className='logo_width'>
             {/* <img height={70} width={170} src={logo} alt='' /> */}
-            <p className="search_bar_title">Categories</p>
+            {/* <p className="search_bar_title">Categories</p> */}
           </div>
 
           <div className='search-box f_flex'>

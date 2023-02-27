@@ -17,6 +17,7 @@ import Register from './pages/Register';
 import { Product } from './components/Product';
 import User_context, { UserProvider } from './components/User_context';
 import Navbar from './common/header/Navbar';
+import Shop from './components/shops/Shop';
 
 
 function App() {
@@ -68,7 +69,7 @@ function App() {
     <Router>
     <div className="App">
       <Routes>
-          <Route path='/' element ={<><Header/><productItems/><Home/> <addToCart/> <shopItems/><Footer /></>} />
+          <Route path='/' element ={<><Header/><productItems/><Home/><Shop/> <addToCart/> <shopItems/><Footer /></>} />
           <Route path='/navbar' element={<><Navbar /></>} />
           <Route path='/login' element={<><Login /></>} />
           <Route path='/home' element={<><Home /></>} />
