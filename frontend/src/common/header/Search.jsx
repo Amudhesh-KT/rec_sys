@@ -4,6 +4,7 @@ import { Link } from "react-router-dom"
 import "../../App.css"
 import { fontAwesome } from "fontawesome"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Button } from "@nextui-org/react"
 
 const Search = ({ CartItem }) => {
   // fixed Header
@@ -25,6 +26,9 @@ const Search = ({ CartItem }) => {
             <input type='text' placeholder='Search and hit enter...' />
             <span>Search</span>
           </div>
+          <div className="login_btn_searchbar">
+            <Button>Login</Button>
+          </div>
 
           {/* <div className='icon'>
             <FontAwesomeIcon icon={'face-thermometer'}/>
@@ -32,7 +36,7 @@ const Search = ({ CartItem }) => {
               <Link to='/cart'>
                 <i className='fa fa-shopping-bag icon-circle'></i>
                 <span>{CartItem}</span>
-              </Link> 
+              </Link>
             </div>
           </div> */}
         </div>

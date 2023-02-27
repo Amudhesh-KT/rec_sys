@@ -24,7 +24,7 @@
   width: 20%;
 }
 .search-box {
-  width: 80%;
+  width: 50%;
   border: 2px solid rgba(0, 0, 0, 0.1);
   /*padding: 10px;*/
   border-radius: 50px;
@@ -70,8 +70,8 @@
 }
 /*------search-----------*/
 .catgrories {
-  background-color: #f6f9fc;
-  padding: 0px 30px;
+  /* background-color: #f6f9fc; */
+  padding: 0px 100px;
   border-radius: 5px;
   height: 6vh;
   margin-top: 5px;
