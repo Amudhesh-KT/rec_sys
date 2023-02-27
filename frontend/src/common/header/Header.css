@@ -173,3 +173,7 @@ header ul li a:hover {
     height: 10vh;
   }
 }
+.search_bar_title{
+  margin-top: 30%;
+  margin-left: 60%;
+}

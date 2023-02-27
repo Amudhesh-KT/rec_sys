@@ -45,12 +45,13 @@ const Register = () => {
         }
     };
     return (
+        <div className="register_form">
         <div className="text-center m-5-auto">
             <h2>Join us</h2>
             <h5>Create your personal account</h5>
             <form style={{
-            marginTop: "100px",
-            marginLeft: "50px",
+            marginTop: "10px",
+            marginLeft: "5px",
             border: "solid 1px",
             width: "max-content",
             borderColor: "green",
@@ -74,10 +75,9 @@ const Register = () => {
                 <p>
                     <button id="sub_btn" type="submit" onSubmit={handleSubmit}>Register</button>
                 </p>
+                <p><Link to="/">Back to Homepage</Link>.</p>
             </form>
-            <footer>
-                <p><Link to="/home">Back to Homepage</Link>.</p>
-            </footer>
+        </div>
         </div>
     )
 }

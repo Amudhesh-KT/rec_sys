@@ -1,12 +1,13 @@
 import React, { useState } from "react"
 import { Link } from "react-router-dom"
+import "./Header.css"
 
 const Navbar = () => {
   // Toogle Menu
   const [MobileMenu, setMobileMenu] = useState(false)
   return (
     <>
-      <header className='header' style={{ height: "30%" }}>
+      <header className='header' style={{ height: "10%" }}>
         <div className='container d_flex'>
           <div className='catgrories d_flex'>
             {/* <span class='fa-solid fa-border-all'></span> */}
@@ -27,7 +28,7 @@ const Navbar = () => {
               <li>
                 <Link to='/user'>user account</Link>
               </li>
-              <li>
+              {/* <li>
                 <Link to='/vendor'>vendor account</Link>
               </li>
               <li>
@@ -35,7 +36,7 @@ const Navbar = () => {
               </li>
               <li>
                 <Link to='/contact'>contact</Link>
-              </li>
+              </li> */}
             </ul>
 
             <button className='toggle' onClick={() => setMobileMenu(!MobileMenu)}>

@@ -6,10 +6,10 @@ import Navbar from "./Navbar"
 
 const Header = ({ CartItem }) => {
   return (
-    <div style={{height:"30vh",width:"100%"}}>
+    <div style={{height:"18vh",width:"100%"}}>
       <Head />
       <Search CartItem={CartItem} />
-      <Navbar />
+      {/* <Navbar /> */}
 
     </div>
   )

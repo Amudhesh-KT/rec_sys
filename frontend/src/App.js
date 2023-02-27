@@ -10,12 +10,13 @@ import Data from "./components/Data"
 import Cart from "./common/Cart/Cart"
 import Footer from "./common/footer/Footer"
 import Sdata from "./components/shops/Sdata"
-import { NavBar } from "../src/components/Navbar";
+// import { NavBar } from "../src/components/Navbar";
 import { Login } from './pages/Login';
 // import Home from './pages/Home';
 import Register from './pages/Register';
 import { Product } from './components/Product';
 import User_context, { UserProvider } from './components/User_context';
+import Navbar from './common/header/Navbar';
 
 
 function App() {
@@ -68,7 +69,7 @@ function App() {
     <div className="App">
       <Routes>
           <Route path='/' element ={<><Header/><productItems/><Home/> <addToCart/> <shopItems/><Footer /></>} />
-          <Route path='/navbar' element={<><NavBar /></>} />
+          <Route path='/navbar' element={<><Navbar /></>} />
           <Route path='/login' element={<><Login /></>} />
           <Route path='/home' element={<><Home /></>} />
           <Route path='/register' element={<Register />} />

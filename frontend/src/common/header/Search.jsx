@@ -18,7 +18,8 @@ const Search = ({ CartItem }) => {
       <section className='search' style={{ height: "10%",marginTop:"1%" }}>
         <div className='container c_flex' style={{ width: "100%", height: "100%" }}>
           <div className='logo_width'>
-            <img height={70} width={170} src={logo} alt='' />
+            {/* <img height={70} width={170} src={logo} alt='' /> */}
+            <p className="search_bar_title">Categories</p>
           </div>
 
           <div className='search-box f_flex'>
@@ -27,7 +28,7 @@ const Search = ({ CartItem }) => {
             <span>Search</span>
           </div>
           <div className="login_btn_searchbar">
-            <Button>Login</Button>
+            <Button color="gradient" size="sm" rounded><Link to='/login'>Login</Link></Button>
           </div>
 
           {/* <div className='icon'>

@@ -98,10 +98,14 @@ button {
   box-shadow: rgb(43 52 69 / 10%) 0px 4px 16px;
   background-color: #fff;
   width: 23%;
-  height: 510px;
+  height: 470px;
   padding: 15px 0;
   border-radius: 5px;
   margin-top: 5px;
+  overflow: scroll;
+  scroll-behavior: smooth;
+  scrollbar-base-color: transparent;
+  
 }
 
 .category img {
@@ -119,12 +123,16 @@ button {
 .category .box {
   transition: 0.5s;
   padding: 0 20px;
+  
 }
 
 .category .box:hover {
   background-color: #ffe1e6;
   cursor: pointer;
 }
+/* .box{
+  overflow: scroll;
+} */
 
 /*---------category----------*/
 .btn-primary {
