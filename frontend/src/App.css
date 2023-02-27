@@ -104,7 +104,6 @@ button {
   margin-top: 5px;
   overflow: scroll;
   scroll-behavior: smooth;
-  scrollbar-base-color: transparent;
   
 }
 
