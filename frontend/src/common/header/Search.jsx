@@ -3,7 +3,7 @@ import logo from "../../images/Digi_logo.png"
 import { Link } from "react-router-dom"
 import "../../App.css"
 import { fontAwesome } from "fontawesome"
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Search = ({ CartItem }) => {
   // fixed Header
@@ -14,27 +14,27 @@ const Search = ({ CartItem }) => {
 
   return (
     <>
-      <section className='search'>
-        <div className='container c_flex'>
+      <section className='search' style={{ height: "10%",marginTop:"1%" }}>
+        <div className='container c_flex' style={{ width: "100%", height: "100%" }}>
           <div className='logo_width'>
-            <img height={50} width={100} src={logo} alt='' />
+            <img height={70} width={170} src={logo} alt='' />
           </div>
 
           <div className='search-box f_flex'>
             <i className='fa fa-search'></i>
             <input type='text' placeholder='Search and hit enter...' />
-            <span>All Category</span>
+            <span>Search</span>
           </div>
 
-          <div className='icon'>
-            {/* <FontAwesomeIcon icon={'face-thermometer'}/>
+          {/* <div className='icon'>
+            <FontAwesomeIcon icon={'face-thermometer'}/>
             <div className='cart'>
               <Link to='/cart'>
                 <i className='fa fa-shopping-bag icon-circle'></i>
                 <span>{CartItem}</span>
               </Link> 
-            </div> */}
-          </div>
+            </div>
+          </div> */}
         </div>
       </section>
     </>
