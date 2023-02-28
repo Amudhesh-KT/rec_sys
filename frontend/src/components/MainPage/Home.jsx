@@ -5,8 +5,12 @@ import SliderHome from "./Slider"
 import Shop from "../shops/Shop"
 import axios from "axios"
 
+import Sdata from "./Sdata"
+
+
 // usercontext for userid
 import User_context from '../User_context'
+
 
 
 const Home = () => {
@@ -19,18 +23,15 @@ const Home = () => {
   useEffect(() => {
     console.log("Calling fetch items")
     console.log(userID)
-    // let userID = sessionStorage.getItem('userId')
-    // console.log(userID)
-
-    // setUserID(localStorage.getItem('userId'))
-    // console.log(userID)
 
     fetchItems();
+    fetchItems2();
 
   },[userID]);
 
-  const [items, setItems] = useState([]);
+  
   const [Final_out, setFinal_out] = useState([]);
+  const [Final_out2, setFinal_out2] = useState([]);
 
   const fetchItems = async () => {
     axios.defaults.headers.post["Access-Control-Allow-Origin"] = "*";
@@ -39,14 +40,30 @@ const Home = () => {
     const items = await data.json();
 
     console.log(items);
-    // setItems(items);
+    
     setFinal_out(items)
 
   };
 
-  // setFinal_out(items)
-  console.log("im final out")
+ const fetchItems2 = async () =>{
+  axios.defaults.headers.post["Access-Control-Allow-Origin"] = "*";
+  const res = await fetch("http://127.0.0.1:8000/pop_list");
+  console.log(res);
+  const pop_items = await res.json();
+
+  console.log(pop_items);
+  setFinal_out2(pop_items)
+ }
+
+  console.log("popularity recommendations")
+  console.log(Final_out2)
+
+  console.log("collobrative recommendations")
   console.log(Final_out)
+
+  // Sdata = Final_out2;
+
+
 
   return (
     <>

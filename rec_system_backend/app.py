@@ -314,29 +314,29 @@ async def login(username:str,password:str):
         for i in range(5):
             rec_proudcts.append(rec_list[i][0])
 
-        print(rec_proudcts)
-        return rec_proudcts
+        # print(rec_proudcts)
+        # return rec_proudcts
 
-    if (user['password'] == password):
-        flag = 1
-        # user_id = user['id']
-        print("login success")
-        rec = recommend_items_user(user['id'])
+        if (user['password'] == password):
+            flag = 1
+            # user_id = user['id']
+            print("login success")
+            rec = recommend_items_user(user['id'])
 
-        db["RecList"].insert_one({
-        "User_ID": user['id'],
-        "rec_list": rec                                 
-        })
+            db["RecList"].insert_one({
+            "User_ID": user['id'],
+            "rec_list": rec                                 
+            })
 
+        
     
-    
-    else:
-        flag = 0
-        return "invalid username or password"
+        else:
+            flag = 0
+            return "invalid username or password"
     
 
-
-    return {"username": username, "password": password, "id": user['id'], "flag": flag} 
+    return {"username": username, "password": password, "id": user['id']}
+     
 
 @app.post('/register')
 async def create_user(request: Request):
@@ -414,24 +414,26 @@ async def pop_model():
     for i in range(5):
         pop_rec_product_list.append(pop_final_list[i][1])                   
 
-    # print(pop_rec_product_list)
+    print(pop_rec_product_list)
 
     #loop for product iteration 
     poplist = []
     for i in pop_rec_product_list:
-        details = db["Product"].find_one({"Product_ID":i})
+        details = db["Product_Data"].find_one({"Product_ID":i})
         poplist.append({
             "product_id":details["Product_ID"],
             "product_name":details["Product_name"],
             "product_img": details["str_base64"],
-            "Product_price": details["Product_description"],
-            "Product_description": (details["Product_price"].strip())
+            "Product_price": details["Product_price"],
+            "Product_description": (details["Product_description"].strip())
         })
 
     # print(poplist)
 
 
     return poplist
+
+    # return pop_rec_product_list
 
 
 

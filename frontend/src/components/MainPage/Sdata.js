@@ -30,4 +30,5 @@ const Sdata = [
     cover: "./images/SlideCard/slide-4.png",
   },
 ]
+// const Sdata = [];
 export default Sdata
