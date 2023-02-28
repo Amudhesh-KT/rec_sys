@@ -8,6 +8,7 @@ import axios from "axios"
 import Sdata from "./Sdata"
 
 
+
 // usercontext for userid
 import User_context from '../User_context'
 
@@ -57,6 +58,8 @@ const Home = () => {
 
   console.log("popularity recommendations")
   console.log(Final_out2)
+
+  
 
   console.log("collobrative recommendations")
   console.log(Final_out)
