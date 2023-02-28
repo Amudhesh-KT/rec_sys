@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import { useState,Switch } from 'react';
+import { useState, Switch } from 'react';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 //components
 import Home from './components/MainPage/Home';
@@ -67,17 +67,20 @@ function App() {
   }
   return (
     <Router>
-    <div className="App">
-      <Routes>
-          <Route path='/' element ={<><Header/><productItems/><Home/><Shop/> <addToCart/> <shopItems/><Footer /></>} />
-          <Route path='/navbar' element={<><Navbar /></>} />
-          <Route path='/login' element={<><Login /></>} />
-          <Route path='/home' element={<><Home /></>} />
-          <Route path='/register' element={<Register />} />
-          <Route path='/product' element={<Product />} />
-      </Routes>
+      <div className="App">
+        <UserProvider>
+          <Routes>
+            <Route path='/' element={<><Header /><productItems /><Home /><Shop /> <addToCart /> <shopItems /><Footer /></>} />
+            <Route path='/navbar' element={<><Navbar /></>} />
+            <Route path='/login' element={<><Login /></>} />
+            <Route path='/home' element={<><Home /></>} />
+            <Route path='/register' element={<Register />} />
+            <Route path='/product' element={<Product />} />
+          </Routes>
+        </UserProvider>
+
       </div>
-      </Router>
+    </Router>
   );
 }
 

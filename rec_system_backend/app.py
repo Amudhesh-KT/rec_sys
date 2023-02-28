@@ -335,8 +335,6 @@ async def login(username:str,password:str):
         return "invalid username or password"
     
 
-    
-
 
     return {"username": username, "password": password, "id": user['id'], "flag": flag} 
 
@@ -365,25 +363,25 @@ async def create_user(request: Request):
 
 """ ********************************* GET REQUEST ****************
 userId = req**************************************** """
-@app.get('/reclist/')
+@app.get('/reclist')
 async def Recommmendation_list(userId:int):
     # userId = request.path_params.get('userId')
     
+    print("im inside reclist")
     record = db["RecList"].find_one({"User_ID":userId })
-    
+ 
     json_list = jsonable_encoder(record['rec_list'])
-    
     
     # loop for product iteration 
     a = []
     for i in json_list:
-        details = db["Product"].find_one({"Product_ID":i})
+        details = db["Product_Data"].find_one({"Product_ID":i})
         a.append({
             "product_id":details["Product_ID"],
             "product_name":details["Product_name"],
             "product_img": details["str_base64"],
-            "Product_price": details["Product_description"],
-            "Product_description": (details["Product_price"].strip())
+            "Product_price": details["Product_price"],
+            "Product_description": (details["Product_description"].strip())
         })
 
 
