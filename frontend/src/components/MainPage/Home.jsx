@@ -26,7 +26,7 @@ const Home = () => {
     console.log(userID)
 
     fetchItems();
-    fetchItems2();
+    // fetchItems2();
 
   },[userID]);
 
