@@ -15,3 +15,10 @@
   width: 100%;
   height: 100%;
 }
+.rec_products{
+  display:flex;
+}
+.recc_product_img{
+  height: 70%;
+  width:70%;
+}
