@@ -18,6 +18,7 @@ import { Product } from './components/Product';
 import User_context, { UserProvider } from './components/User_context';
 import Navbar from './common/header/Navbar';
 import Shop from './components/shops/Shop';
+import NewArrivals from './components/newarrivals/NewArrivals';
 
 
 function App() {
@@ -70,7 +71,7 @@ function App() {
       <div className="App">
         <UserProvider>
           <Routes>
-            <Route path='/' element={<><Header /><productItems /><Home /><Shop /> <addToCart /> <shopItems /><Footer /></>} />
+            <Route path='/' element={<><Header /><productItems /><Home /><Shop /> <addToCart /> <shopItems /><NewArrivals/><Footer /></>} />
             <Route path='/navbar' element={<><Navbar /></>} />
             <Route path='/login' element={<><Login /></>} />
             <Route path='/home' element={<><Home /></>} />

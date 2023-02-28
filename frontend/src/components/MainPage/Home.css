@@ -8,8 +8,8 @@
 }
 .homeSlide ul {
   position: absolute;
-  bottom: 10px;
-  margin-left: 10%;
+  /* bottom: 10px; */
+  /* margin-left: 10%; */
 }
 .homeSlide ul li {
   border: 2px solid #b8b7b7;
@@ -31,15 +31,14 @@
 .homeSlide{
   margin-top: -5%;
 }
-.slider_comp{
+/* .slider_comp{
   margin-top: -5%;
   margin-left: 15%;
 }
 .slider_comp.left{
   margin-left: 20%;
-}
+}*/
 .slider_comp_main{
-  display: block;
-  justify-content: space-around;
+ margin-top: 10%;
 
-}
+} 

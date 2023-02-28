@@ -52,7 +52,7 @@ const Home = () => {
     <>
       <section className='home'>
         <div className='container d_flex'>
-          {/* <Categories /> */}
+          <Categories />
           <SliderHome />
         </div>
       </section>
