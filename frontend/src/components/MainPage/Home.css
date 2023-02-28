@@ -42,3 +42,23 @@
  margin-top: 10%;
 
 } 
+.slick-prev:before {
+  content: '';
+}
+
+element.style {
+  display: block;
+}
+.slick-prev {
+  left: -25px;
+}
+
+element.style {
+  display: block;
+}
+.slick-prev {
+  left: -25px;
+}
+.slick-prev, .slick-next{
+  color: transparent;
+}
