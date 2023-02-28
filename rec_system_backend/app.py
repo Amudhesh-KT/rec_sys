@@ -314,10 +314,10 @@ async def login(username:str,password:str):
         for i in range(5):
             rec_proudcts.append(rec_list[i][0])
 
-        # print(rec_proudcts)
-        # return rec_proudcts
+        print(rec_proudcts)
+        return rec_proudcts
 
-        if (user['password'] == password):
+    if (user['password'] == password):
             flag = 1
             # user_id = user['id']
             print("login success")
@@ -330,9 +330,11 @@ async def login(username:str,password:str):
 
         
     
-        else:
+    else:
             flag = 0
             return "invalid username or password"
+    
+    
     
 
     return {"username": username, "password": password, "id": user['id']}
