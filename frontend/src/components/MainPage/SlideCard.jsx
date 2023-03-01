@@ -56,7 +56,7 @@ const SlideCard = () => {
           return (
             <div className="slider_comp_main">
             <div className="slidercomponent_main">
-              <div className='box d_flex top' key={index}>
+              <div className='box d_flex top popular' >
                 <div className='slider_comp left'>
                   <h1>{value.product_name}</h1>
                   <p>{value.Product_description}</p>

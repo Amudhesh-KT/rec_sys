@@ -19,6 +19,7 @@ import User_context, { UserProvider } from './components/User_context';
 import Navbar from './common/header/Navbar';
 import Shop from './components/shops/Shop';
 import NewArrivals from './components/newarrivals/NewArrivals';
+import TopCate from './components/top/TopCate';
 
 
 function App() {
@@ -71,10 +72,10 @@ function App() {
       <div className="App">
         <UserProvider>
           <Routes>
-            <Route path='/' element={<><Header /><productItems /><Home /><Shop /> <addToCart /> <shopItems /><NewArrivals/><Footer /></>} />
+            <Route path='/' element={<><Login /></>} />
             <Route path='/navbar' element={<><Navbar /></>} />
-            <Route path='/login' element={<><Login /></>} />
-            <Route path='/home' element={<><Home /></>} />
+            {/* <Route path='/login' element={<></>} /> */}
+            <Route path='/home' element={<><Header /><productItems /><Home /><TopCate/><NewArrivals/><Footer /></>} />
             <Route path='/register' element={<Register />} />
             <Route path='/product' element={<Product />} />
           </Routes>

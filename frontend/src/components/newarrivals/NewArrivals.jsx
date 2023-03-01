@@ -1,10 +1,21 @@
 import {React,useContext,useEffect,useState} from "react"
+import Slider from "react-slick"
 import Cart from "./Cart"
 import "./style.css"
 
 
 
 const NewArrivals = () => {
+  const settings = {
+    dots: true,
+    infinite: true,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    appendDots: (dots) => {
+      return <ul style={{ marginBottom:"0rem" }}>{dots}</ul>
+    },
+  }
 
 
 

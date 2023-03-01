@@ -104,6 +104,7 @@ button {
   margin-top: 5px;
   overflow: scroll;
   scroll-behavior: smooth;
+  scroll-padding-bottom: none;
   
 }
 

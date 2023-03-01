@@ -15,21 +15,21 @@ const Search = ({ CartItem }) => {
 
   return (
     <>
-      <section className='search' style={{ height: "13%",marginTop:"0%" }}>
+      <section className='search' style={{ height: "13%",marginTop:"0%",marginBottom:"30px" }}>
         <div className='container c_flex' style={{ width: "100%", height: "100%" }}>
           <div className='logo_width'>
             {/* <img height={70} width={170} src={logo} alt='' /> */}
             {/* <p className="search_bar_title">Categories</p> */}
           </div>
 
-          <div className='search-box f_flex'>
+          <div className='search-box center_place f_flex'>
             <i className='fa fa-search'></i>
             <input type='text' placeholder='Search and hit enter...' />
             <span>Search</span>
           </div>
-          <div className="login_btn_searchbar">
+          {/* <div className="login_btn_searchbar">
             <Button color="gradient" size="sm" rounded><Link to='/login'>Login</Link></Button>
-          </div>
+          </div> */}
 
           {/* <div className='icon'>
             <FontAwesomeIcon icon={'face-thermometer'}/>
