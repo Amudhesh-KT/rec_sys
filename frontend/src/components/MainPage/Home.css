@@ -28,9 +28,9 @@
   left: 0;
   margin: auto;
 }
-.homeSlide{
+/* .homeSlide{
   margin-top: -5%;
-}
+} */
 /* .slider_comp{
   margin-top: -5%;
   margin-left: 15%;
@@ -38,10 +38,13 @@
 .slider_comp.left{
   margin-left: 20%;
 }*/
-.slider_comp_main{
+/* .slider_comp_main{
  margin-top: 10%;
 
-} 
+}  */
+.slick-dots{
+  bottom:100px;
+}
 .slick-prev:before {
   content: '';
 }
@@ -61,4 +64,12 @@ element.style {
 }
 .slick-prev, .slick-next{
   color: transparent;
+}
+.popular{
+  /* height:250px; */
+  width: 80%;
+  /* margin-left: 10%; */
+}
+.center_place{
+  margin-right:23%;
 }

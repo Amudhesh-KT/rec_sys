@@ -1,4 +1,4 @@
-import {React,useContext,useEffect,useState} from "react"
+import { React, useContext, useEffect, useState } from "react"
 import Ndata from "./Ndata"
 import axios from "axios"
 
@@ -9,15 +9,17 @@ import Slider from "react-slick"
 
 const Cart = () => {
 
-   const settings = {
-     dots: false,
-     infinite: true,
-     slidesToShow: 3,
-     slidesToScroll: 1,
-     autoplay: true,
-   }
+  const settings = {
+    dots: false,
+    infinite: true,
+    slidesToShow: 5,
+    slidesToScroll: 1,
+    autoplay: true,
+  }
 
   const [Final_out, setFinal_out] = useState([]);
+
+  const [Num, setNum] = useState('')
 
   const { userID } = useContext(User_context)
 
@@ -25,7 +27,19 @@ const Cart = () => {
     fetchItems();
   }, [userID]);
 
+  function Randomnum(min,max){
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+// function RandomNum() {
+//   const [numbers, setNumbers] = useState([]);
 
+//   useEffect(() => {
+//     const randomNum = Array.from({length: 5}, () => Math.floor(Math.random() * 100) + 60);
+//     randomNum.sort((a, b) => b - a);
+//     setNumbers(randomNum);
+//     return setNumbers
+//   }, []);
+// }
 
   const fetchItems = async () => {
     axios.defaults.headers.post["Access-Control-Allow-Origin"] = "*";
@@ -46,23 +60,33 @@ const Cart = () => {
 
   return (
     <>
-    {/* <Slider {..settings}> */}
-    <div className='content grid product rec_products' >
+
+      <div className='content grid product rec_products' >
         {Final_out.map((val, index) => {
           return (
-            <div className='box' key={index}>
-              <h5 >77% match</h5>
-              <div >
-                <img className='recc_product_img' src={`data:image/png;base64,${val.product_img}`} />
+            
+            
+          <div className='box' key={index}>
+            
+                <div className="box">
+                  {/* <Slider {...settings}> */}
+                  <h5 >{Randomnum(60,100)} % match</h5>
+                  <div >
+                    <img className='recc_product_img' src={`data:image/png;base64,${val.product_img}`} />
+                  </div>
+                  <h4>{val.product_name}</h4>
+                  <span>Rs.{val.Product_price}/-</span>
+                  {/* </Slider> */}
+                </div>
+                
               </div>
-              <h4>{val.product_name}</h4>
-              <span>Rs.{val.Product_price}/-</span>
-            </div>
+            
+
           )
         })}
       </div>
-    {/* </Slider> */}
-    
+
+
     </>
   )
 }

@@ -55,7 +55,7 @@ export const Login = () => {
     // console.log(userID)
     
     setUserID(res.data.id)
-    navigate('/') 
+    navigate('/home') 
   }
 
   return (
