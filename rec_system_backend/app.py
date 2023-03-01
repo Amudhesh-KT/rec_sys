@@ -383,7 +383,8 @@ async def Recommmendation_list(userId:int):
             "product_name":details["Product_name"],
             "product_img": details["str_base64"],
             "Product_price": details["Product_price"],
-            "Product_description": (details["Product_description"].strip())
+            "Product_description": details["Product_description"].strip(),
+            "Product_category": details["Product_category"]
         })
 
 
@@ -427,7 +428,8 @@ async def pop_model():
             "product_name":details["Product_name"],
             "product_img": details["str_base64"],
             "Product_price": details["Product_price"],
-            "Product_description": (details["Product_description"].strip())
+            "Product_description": details["Product_description"].strip(),
+            "Product_category": details["Product_category"]
         })
 
     # print(poplist)
@@ -437,6 +439,15 @@ async def pop_model():
 
     # return pop_rec_product_list
 
+@app.get('/product_list')
+async def product_list():
+
+    for x in db['Product_Data'].find({},{"str_base64":1,"Product_name":1,"Product_ID":1,"Product_price":1,"Product_description":1,"Product_category":1}):
+        print(x)
+
+    # print(details)
+
+    return "hello"
 
 
 
