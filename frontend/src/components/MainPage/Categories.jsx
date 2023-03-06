@@ -160,8 +160,8 @@ const Categories = () => {
           return (
             <div className='box f_flex' key={index}>
               <img src={value.cateImg} alt='' />
-              <span >{value.cateName}</span>
-              {/* <button onClick={handleCategorySelect}>{value.cateName}</button> */}
+              {/* <span >{value.cateName}</span> */}
+              <button className="category_list_button" onClick={handleCategorySelect}>{value.cateName}</button>
             </div>
           )
         })}

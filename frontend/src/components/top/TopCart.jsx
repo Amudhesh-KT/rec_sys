@@ -53,20 +53,26 @@ const TopCart = () => {
   console.log(product_list)
 
 
+
   return (
     <>
       <Slider {...settings}>
         {product_list.map((value, index) => {
           return (
             <>
-              <div className='box product' key={index}>
+              <div className='box product grid_size' key={index}>
                 <div className='nametop d_flex'>
                   <span className='tleft'>{value.product_name}</span>
-                  <span className='tright'>{value.Product_description}</span>
+                  
                 </div>
-                <div className='img'>
+                <div className='img img_size'>
                   <img src={`data:image/png;base64,${value.product_img}`} />
                 </div>
+                
+                <span className='tright'>{value.Product_description}</span>
+
+                <p>Rs. {value.product_price} /-</p>
+                
               </div>
             </>
           )

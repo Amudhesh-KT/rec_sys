@@ -451,7 +451,7 @@ async def product_list(category:str):
             "product_id":x["Product_ID"],
             "product_name":x["Product_name"],
             "product_img": x["str_base64"],
-            "Product_price": x["Product_price"],
+            "product_price": x["Product_price"],
             "Product_description": x["Product_description"].strip(),
             "Product_category": x["Product_category"]
         })
