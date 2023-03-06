@@ -68,6 +68,7 @@ class User(BaseModel):
     password: str
     email: str
     userID: str
+    category:str
 
 @app.get('/')
 async def index():
@@ -440,10 +441,12 @@ async def pop_model():
     # return pop_rec_product_list
 
 @app.get('/product_list')
-async def product_list():
+async def product_list(category:str):
+
+    print(category)
     
     a=[]
-    for x in db['Product_Data'].find({"Product_category":"Bar furniture"}):
+    for x in db['Product_Data'].find({"Product_category":category}):
                 a.append({
             "product_id":x["Product_ID"],
             "product_name":x["Product_name"],
