@@ -73,3 +73,11 @@ element.style {
 .center_place{
   margin-right:23%;
 }
+.category_list_button{
+  width: 100%;
+  background: transparent;
+  text-transform: capitalize;
+  text-align: justify;
+  margin-left: 5px;
+  margin-top: 3px;
+}

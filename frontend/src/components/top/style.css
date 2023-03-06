@@ -18,7 +18,7 @@
   border-radius: 50px;
   margin: 5px;
   position: absolute;
-  top: 10px;
+  /* top: 10px; */
 }
 .TopCate .nametop .tleft {
   left: 0;
@@ -28,4 +28,12 @@
   color: black;
   position: absolute;
   right: 0;
+}
+.grid_size{
+  height: 250px;
+  width:auto;
+}
+.img_size{
+  height: 150px;
+  width:auto
 }
