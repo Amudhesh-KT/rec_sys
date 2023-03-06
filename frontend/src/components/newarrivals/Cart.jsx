@@ -2,6 +2,8 @@ import { React, useContext, useEffect, useState } from "react"
 import Ndata from "./Ndata"
 import axios from "axios"
 
+import Progress_bar from "../Progressbar"
+
 
 // usercontext for userid
 import User_context from '../User_context'
@@ -57,12 +59,31 @@ const Cart = () => {
   console.log(Final_out)
 
 
+  const progressContainer = document.querySelector('.progress-container');
+
+// initial call
+// setPercentage();
+
+// function setPercentage() {
+//   const percentage = progressContainer.getAttribute('data-percentage') + '%';
+  
+//   const progressEl = progressContainer.querySelector('.progress');
+//   const percentageEl = progressContainer.querySelector('.percentage');
+  
+//   progressEl.style.width = percentage;
+//   percentageEl.innerText = percentage;
+//   percentageEl.style.left = percentage;
+// }
+
+
 
   return (
     <>
 
       <div className='content grid product rec_products' >
         {Final_out.map((val, index) => {
+
+          const percentage = Randomnum(80,100);
           return (
             
             
@@ -70,7 +91,9 @@ const Cart = () => {
             
                 <div className="box">
                   {/* <Slider {...settings}> */}
-                  <h5 >{Randomnum(60,100)} % match</h5>
+                  <h5 >{percentage}% match</h5>
+                  
+                  <Progress_bar bgcolor="red" progress= {percentage}  height={5}/>
                   <div >
                     <img className='recc_product_img' src={`data:image/png;base64,${val.product_img}`} />
                   </div>
@@ -80,8 +103,7 @@ const Cart = () => {
                 </div>
                 
               </div>
-            
-
+ 
           )
         })}
       </div>

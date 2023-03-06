@@ -318,7 +318,7 @@ async def login(username:str,password:str):
         return rec_proudcts
 
     if (user['password'] == password):
-            flag = 1
+            
             # user_id = user['id']
             print("login success")
             rec = recommend_items_user(user['id'])
@@ -331,13 +331,13 @@ async def login(username:str,password:str):
         
     
     else:
-            flag = 0
-            return "invalid username or password"
+            
+            return {"res": "fail"}
     
     
     
 
-    return {"username": username, "password": password, "id": user['id']}
+    return {"username": username, "password": password, "id": user['id'], "res":"pass"}
      
 
 @app.post('/register')
@@ -441,13 +441,23 @@ async def pop_model():
 
 @app.get('/product_list')
 async def product_list():
-
-    for x in db['Product_Data'].find({},{"str_base64":1,"Product_name":1,"Product_ID":1,"Product_price":1,"Product_description":1,"Product_category":1}):
-        print(x)
-
+    
+    a=[]
+    for x in db['Product_Data'].find({"Product_category":"Beds"}):
+                a.append({
+            "product_id":x["Product_ID"],
+            "product_name":x["Product_name"],
+            "product_img": x["str_base64"],
+            "Product_price": x["Product_price"],
+            "Product_description": x["Product_description"].strip(),
+            "Product_category": x["Product_category"]
+        })
+    
+        
+        
     # print(details)
 
-    return "hello"
+    return a
 
 
 

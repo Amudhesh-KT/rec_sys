@@ -25,7 +25,7 @@ const SlideCard = () => {
   const fetchItems2 = async () =>{
     axios.defaults.headers.post["Access-Control-Allow-Origin"] = "*";
     const res = await fetch("http://127.0.0.1:8000/pop_list");
-    console.log("silde datat")
+    console.log("slide data")
     console.log(res);
     const pop_items = await res.json();
   
@@ -58,8 +58,10 @@ const SlideCard = () => {
             <div className="slidercomponent_main">
               <div className='box d_flex top popular' >
                 <div className='slider_comp left'>
-                  <h1>{value.product_name}</h1>
+                  {/* <h1>{value.product_name}</h1> */}
+                  <h1>"50% Off For Your First Shopping"</h1>
                   <p>{value.Product_description}</p>
+                  {/* <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis lobortis consequat eu, quam etiam at quis ut convallis.</p> */}
                   <p>Rs.{value.Product_price}/-</p>
                   <button className='btn-primary'>Visit Collections</button>
                 </div>

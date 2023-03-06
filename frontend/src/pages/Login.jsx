@@ -10,12 +10,16 @@ import "../App.css"
 import "../styles/Login.css"
 
 
+
 export const Login = () => {
   const navigate = useNavigate();
 
   const handleChange = (e) => {
     setInput({ ...input, [e.target.name]: e.target.value });
   };
+
+  /* prompt messages */
+
 
 
   // Usestates definition
@@ -55,8 +59,23 @@ export const Login = () => {
     // console.log(userID)
     
     setUserID(res.data.id)
-    navigate('/home') 
+    console.log(res.data.res)
+
+    if(res.data.res == "pass")
+    {
+      navigate('/home') 
+    }
+    else{
+    
+      console.log("invalid username password")
+    
+    alert('Login failed. Please check your username and password and try again.');
+    }
+    
+
+
   }
+  
 
   return (
     // <div className="text-center m-5-auto">
