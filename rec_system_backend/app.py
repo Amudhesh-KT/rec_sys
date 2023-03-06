@@ -443,7 +443,7 @@ async def pop_model():
 async def product_list():
     
     a=[]
-    for x in db['Product_Data'].find({"Product_category":"Beds"}):
+    for x in db['Product_Data'].find({"Product_category":"Bar furniture"}):
                 a.append({
             "product_id":x["Product_ID"],
             "product_name":x["Product_name"],

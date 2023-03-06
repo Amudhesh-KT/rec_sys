@@ -11,6 +11,8 @@ import Slider from "react-slick"
 
 const Cart = () => {
 
+  
+
   const settings = {
     dots: false,
     infinite: true,
@@ -55,9 +57,17 @@ const Cart = () => {
 
   };
 
+  
+
   console.log("im final out from new arrivals");
   console.log(Final_out)
+  console.log(typeof(Final_out))
 
+  sessionStorage.setItem("data", Final_out);
+  const a = sessionStorage.getItem("data");
+  console.log(a);
+
+  
 
   const progressContainer = document.querySelector('.progress-container');
 
