@@ -8,16 +8,22 @@ import axios from "axios"
 // importing usercontext
 import User_context from '../User_context'
 
+// importing category context
+import Category_context from "../Category_context"
+
 // importing progress bar
 import Progress_bar from "../Progressbar"
 
 const TopCart = () => {
-
+  
   const { userID } = useContext(User_context)
+
+  const {category} = useContext(Category_context)
+
 
   useEffect(() => {
     fetchProducts();
-  }, [userID ]);
+  }, [category ]);
 
 
 
@@ -33,7 +39,7 @@ const TopCart = () => {
 
   const fetchProducts= async () =>{
     axios.defaults.headers.post["Access-Control-Allow-Origin"] = "*";
-    const res = await fetch("http://127.0.0.1:8000/product_list");
+    const res = await fetch("http://127.0.0.1:8000/product_list?category=" + category);
 
     console.log(res.data);
     const product_items = await res.json();

@@ -20,6 +20,8 @@ import Navbar from './common/header/Navbar';
 import Shop from './components/shops/Shop';
 import NewArrivals from './components/newarrivals/NewArrivals';
 import TopCate from './components/top/TopCate';
+import { CategoryProvider } from './components/Category_context';
+
 
 
 function App() {
@@ -71,16 +73,17 @@ function App() {
     <Router>
       <div className="App">
         <UserProvider>
-          <Routes>
-            <Route path='/' element={<><Login /></>} />
-            <Route path='/navbar' element={<><Navbar /></>} />
-            {/* <Route path='/login' element={<></>} /> */}
-            <Route path='/home' element={<><Header /><TopCate/><NewArrivals/><Footer /></>} />
-            <Route path='/register' element={<Register />} />
-            <Route path='/product' element={<Product />} />
-          </Routes>
+          <CategoryProvider>
+            <Routes>
+              <Route path='/' element={<><Login /></>} />
+              <Route path='/navbar' element={<><Navbar /></>} />
+              {/* <Route path='/login' element={<></>} /> */}
+              <Route path='/home' element={<><Header /><TopCate /><NewArrivals /><Footer /></>} />
+              <Route path='/register' element={<Register />} />
+              <Route path='/product' element={<Product />} />
+            </Routes>
+          </CategoryProvider>
         </UserProvider>
-
       </div>
     </Router>
   );
