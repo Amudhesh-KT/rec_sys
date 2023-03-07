@@ -156,6 +156,8 @@ const Categories = () => {
             console.log(catego)
             
             console.log("Im in func")
+
+            window.scrollBy(0, 505);
           };
           return (
             <div className='box f_flex' key={index}>
@@ -166,7 +168,6 @@ const Categories = () => {
           )
         })}
               
-
       </div>
       
     </>
