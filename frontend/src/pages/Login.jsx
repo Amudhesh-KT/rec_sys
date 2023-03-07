@@ -39,9 +39,6 @@ export const Login = () => {
   const caller = async () => {
 
 
-  
-    // axios.defaults.headers.post["Access-Control-Allow-Origin"] = "*";
-
     console.log(input.email)
     console.log(input.password)
 

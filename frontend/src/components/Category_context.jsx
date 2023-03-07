@@ -5,7 +5,7 @@ const Category_context = createContext({});
 
 export const CategoryProvider = ({children}) =>{
 
-    const [category, setcategory] = useState();
+    const [category, setcategory] = useState("Bar furniture");
 
     return(<Category_context.Provider value={{category, setcategory}} >{children}</Category_context.Provider>)
 }

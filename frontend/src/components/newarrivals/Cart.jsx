@@ -4,6 +4,8 @@ import axios from "axios"
 
 import Progress_bar from "../Progressbar"
 
+import { Text } from "@nextui-org/react";
+
 
 // usercontext for userid
 import User_context from '../User_context'

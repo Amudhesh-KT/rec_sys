@@ -454,3 +454,8 @@ body,
 .logo_width {
   width: 10%
 }
+
+.dq-head {
+  text-align: center;
+  margin: 1rem 0;
+}
