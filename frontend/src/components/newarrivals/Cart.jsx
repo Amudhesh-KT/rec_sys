@@ -29,6 +29,7 @@ const Cart = () => {
 
   const { userID } = useContext(User_context)
 
+
   useEffect(() => {
     fetchItems();
   }, [userID]);
@@ -48,14 +49,23 @@ const Cart = () => {
   // }
 
   const fetchItems = async () => {
+
+  let user__id = localStorage.getItem('user__id');
+  console.log("from recommend page")
+  console.log(user__id)
+
+
     axios.defaults.headers.post["Access-Control-Allow-Origin"] = "*";
-    const data = await fetch("http://127.0.0.1:8000/reclist?userId=" + userID);
+    const data = await fetch("http://127.0.0.1:8000/reclist?userId=" + user__id);
     console.log(data);
     const items = await data.json();
 
     console.log(items);
 
     setFinal_out(items)
+
+    
+  
 
   };
 

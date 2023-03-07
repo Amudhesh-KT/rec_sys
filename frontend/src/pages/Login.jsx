@@ -6,9 +6,7 @@ import loginstyle from "../styles/Login.css"
 import axios from "axios"
 import "../App.css"
 
-
 import "../styles/Login.css"
-
 
 
 export const Login = () => {
@@ -29,6 +27,8 @@ export const Login = () => {
 
   // usercontext for userid
   const { setUserID, userID } = useContext(User_context)
+
+ 
 
 
   useEffect(() => {
@@ -57,6 +57,11 @@ export const Login = () => {
     
     setUserID(res.data.id)
     console.log(res.data.res)
+
+    // To store data
+    let u_id = localStorage.setItem('user__id', res.data.id);
+    console.log("local storage userid")
+    console.log(u_id);
 
     if(res.data.res == "pass")
     {
