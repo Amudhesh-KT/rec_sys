@@ -32,10 +32,9 @@
   width: 170px;
   display: list-item;
 }
-/* .rec_list_{
-  width: 19%;
-  display: inline-flex;
-}  */
+.rec_list_{
+  width: 250px;
+} 
 .rec_list_main{
   display: flex;
   width: 100%;
