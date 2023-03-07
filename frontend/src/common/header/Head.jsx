@@ -1,6 +1,13 @@
 import React from "react"
+import LogoutIcon from '@mui/icons-material/Logout';
+import { Link, useNavigate,NavLink } from "react-router-dom";
+
 
 const Head = () => {
+  const Navigate = useNavigate();
+  const Logout = () =>{
+    Navigate('/')
+  }
   return (
     <>
       <section className='head' style={{height:"35%"}}>
@@ -12,10 +19,10 @@ const Head = () => {
             <label> furniture@ecomm.com</label>
           </div>
           <div className='right row RText'>
-            <label>Theme FAQ"s</label>
-            <label>Need Help?</label>
-            <label>EN</label>
-            <label>INR</label>
+            {/* <label>Theme FAQ"s</label>
+            <label>Need Help?</label> */}
+            <label className="logout_btn" onClick={Logout}><LogoutIcon/></label>
+            {/* <FontAwesomeIcon icon="fa-solid fa-right-from-bracket">Logout</FontAwesomeIcon> */}
           </div>
         </div>
       </section>

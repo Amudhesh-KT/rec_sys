@@ -1,6 +1,8 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import "./style.css"
+import logo from "../../images/Digi_logo.png"
+import digi_logo from "../../images/digi_logo_trans.png"
 
 const Footer = () => {
   const navigate = useNavigate()
@@ -9,8 +11,9 @@ const Footer = () => {
       <footer>
         <div className='container grid2'>
           <div className='box'>
-            <h1>Digiverz</h1>
-            <p>Furniture E-commerce</p>
+            {/* <img height={70} width={170} src={logo}/> */}
+            <p className="footer_title">Digiverz</p>
+            <p className="move_right">Furniture E-commerce</p>
 
           </div>
           <div className='box'>

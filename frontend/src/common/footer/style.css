@@ -34,3 +34,13 @@ footer li {
   margin-bottom: 10px;
   opacity: 0.5;
 }
+.move_right{
+  margin-left: 5%;
+}
+.footer_title{
+  font-size: larger;
+  font-weight: 400;
+  margin-left: 5%;
+  /* font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; */
+color: #fff;
+}
