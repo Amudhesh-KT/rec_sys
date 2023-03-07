@@ -43,7 +43,7 @@
 
 }  */
 .slick-dots{
-  bottom:100px;
+  bottom:-20px;
 }
 .slick-prev:before {
   content: '';
