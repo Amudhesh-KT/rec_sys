@@ -2,10 +2,10 @@ import {React,useContext,useEffect,useState} from "react"
 import Categories from "./Categories"
 import "./Home.css"
 import SliderHome from "./Slider"
-import Shop from "../shops/Shop"
+// import Shop from "../shops/Shop"
 import axios from "axios"
 
-import Sdata from "./Sdata"
+// import Sdata from "./Sdata"
 
 
 

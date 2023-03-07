@@ -5,11 +5,11 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 //components
 import Home from './components/MainPage/Home';
 import Header from "./common/header/Header"
-import Pages from "./pages/Pages"
-import Data from "./components/Data"
-import Cart from "./common/Cart/Cart"
+// import Pages from "./pages/Pages"
+// import Data from "./components/Data"
+// import Cart from "./common/Cart/Cart"
 import Footer from "./common/footer/Footer"
-import Sdata from "./components/shops/Sdata"
+// import Sdata from "./components/shops/Sdata"
 // import { NavBar } from "../src/components/Navbar";
 import { Login } from './pages/Login';
 // import Home from './pages/Home';
@@ -17,7 +17,7 @@ import Register from './pages/Register';
 import { Product } from './components/Product';
 import User_context, { UserProvider } from './components/User_context';
 import Navbar from './common/header/Navbar';
-import Shop from './components/shops/Shop';
+// import Shop from './components/shops/Shop';
 import NewArrivals from './components/newarrivals/NewArrivals';
 import TopCate from './components/top/TopCate';
 import { CategoryProvider } from './components/Category_context';
@@ -25,8 +25,8 @@ import { CategoryProvider } from './components/Category_context';
 
 
 function App() {
-  const { productItems } = Data
-  const { shopItems } = Sdata
+  // const { productItems } = Data
+  // const { shopItems } = Sdata
 
   //Step 2 :
   const [CartItem, setCartItem] = useState([])

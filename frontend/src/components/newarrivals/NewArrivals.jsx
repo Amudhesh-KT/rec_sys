@@ -23,12 +23,13 @@ const NewArrivals = () => {
 
   return (
     <>
-      <section className='NewArrivals background'>
-        <div className='container '>
+      <section className='TopCate background'>
+        
+        <div className='container'>
           <div className='heading d_flex'>
             <div className='heading-left row  f_flex'>
-              {/* <img src='https://img.icons8.com/glyph-neue/64/26e07f/new.png' /> */}
-              {/* <h2>Recommended Items</h2> */}
+              <i className='fa-solid fa-border-all'></i>
+              {/* <h2>Products</h2> */}
               <Text
             h1
             size={30}
@@ -38,7 +39,7 @@ const NewArrivals = () => {
             }}
             weight="bold"
           >
-           &nbsp;   Recommended Items
+           Recommended Products
           </Text>
             </div>
             <div className='heading-right row '>
@@ -46,8 +47,9 @@ const NewArrivals = () => {
               <i className='fa-solid fa-caret-right'></i>
             </div>
           </div>
-
+          <div className="rec_list_main">
           <Cart />
+          </div>
         </div>
       </section>
     </>

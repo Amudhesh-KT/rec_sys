@@ -13,7 +13,7 @@ import Slider from "react-slick"
 
 const Cart = () => {
 
-  
+
 
   const settings = {
     dots: false,
@@ -33,19 +33,19 @@ const Cart = () => {
     fetchItems();
   }, [userID]);
 
-  function Randomnum(min,max){
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-}
-// function RandomNum() {
-//   const [numbers, setNumbers] = useState([]);
+  function Randomnum(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+  // function RandomNum() {
+  //   const [numbers, setNumbers] = useState([]);
 
-//   useEffect(() => {
-//     const randomNum = Array.from({length: 5}, () => Math.floor(Math.random() * 100) + 60);
-//     randomNum.sort((a, b) => b - a);
-//     setNumbers(randomNum);
-//     return setNumbers
-//   }, []);
-// }
+  //   useEffect(() => {
+  //     const randomNum = Array.from({length: 5}, () => Math.floor(Math.random() * 100) + 60);
+  //     randomNum.sort((a, b) => b - a);
+  //     setNumbers(randomNum);
+  //     return setNumbers
+  //   }, []);
+  // }
 
   const fetchItems = async () => {
     axios.defaults.headers.post["Access-Control-Allow-Origin"] = "*";
@@ -59,70 +59,69 @@ const Cart = () => {
 
   };
 
-  
+
 
   console.log("im final out from new arrivals");
   console.log(Final_out)
-  console.log(typeof(Final_out))
+  console.log(typeof (Final_out))
 
   sessionStorage.setItem("data", Final_out);
   const a = sessionStorage.getItem("data");
   console.log(a);
 
-  
+
 
   const progressContainer = document.querySelector('.progress-container');
 
-// initial call
-// setPercentage();
+  // initial call
+  // setPercentage();
 
-// function setPercentage() {
-//   const percentage = progressContainer.getAttribute('data-percentage') + '%';
-  
-//   const progressEl = progressContainer.querySelector('.progress');
-//   const percentageEl = progressContainer.querySelector('.percentage');
-  
-//   progressEl.style.width = percentage;
-//   percentageEl.innerText = percentage;
-//   percentageEl.style.left = percentage;
-// }
+  // function setPercentage() {
+  //   const percentage = progressContainer.getAttribute('data-percentage') + '%';
+
+  //   const progressEl = progressContainer.querySelector('.progress');
+  //   const percentageEl = progressContainer.querySelector('.percentage');
+
+  //   progressEl.style.width = percentage;
+  //   percentageEl.innerText = percentage;
+  //   percentageEl.style.left = percentage;
+  // }
 
 
 
   return (
     <>
 
-      <div className='content grid product rec_products' >
-        {Final_out.map((val, index) => {
+      {/* <div className='content grid product rec_products' > */}
+      {Final_out.map((val, index) => {
 
-          const percentage = Randomnum(80,100);
-          return (
-            
-            
-          <div className='box' key={index}>
-            
-                <div className="box">
-                  {/* <Slider {...settings}> */}
-                  <h5 >{percentage}% match</h5>
-                  
-                  <Progress_bar bgcolor="red" progress= {percentage}  height={5}/>
-                  <div >
-                    <img className='recc_product_img' src={`data:image/png;base64,${val.product_img}`} />
-                  </div>
-                  <h4>{val.product_name}</h4>
-                  <span>Rs.{val.Product_price}/-</span>
-                  {/* </Slider> */}
-                </div>
-                
+        const percentage = Randomnum(80, 100);
+        return (
+          <div className=" rec_list_">
+
+          <div>
+            <div className='box product grid_size' key={index}>
+              <h5 >{percentage}% match</h5>
+
+              <Progress_bar bgcolor="red" progress={percentage} height={5} />
+              <div className='nametop d_flex'>
+                <span className='tleft'>{val.product_name}</span>
+
               </div>
- 
-          )
-        })}
-      </div>
+              <div className='img img_size'>
+                <img src={`data:image/png;base64,${val.product_img}`} />
+              </div>
 
+              <span className='tright'>{val.Product_description}</span>
 
-    </>
+              <p>Rs. {val.Product_price} /-</p>
+
+            </div>
+          </div>
+          </div>
   )
-}
+})}
+</>
+  )}
 
 export default Cart
