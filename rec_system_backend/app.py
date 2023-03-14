@@ -1,6 +1,3 @@
-# Importing necessary libraries
-
-#AMudhesh test for git
 
 import uvicorn
 
@@ -8,7 +5,6 @@ from fastapi import FastAPI,File,UploadFile,Form
 import pickle
 import pandas as pd
 import base64
-# from fastapi import jsonify
 
 from pydantic import BaseModel
 from fastapi import FastAPI
@@ -18,10 +14,7 @@ from fastapi.encoders import jsonable_encoder
 
 import json
 
-# from hashing import Hash
-# from jwttoken import create_access_token
-# from oauth import get_current_user
-# from fastapi.security import OAuth2PasswordRequestForm
+
 from pymongo import MongoClient
 import urllib
 
@@ -78,206 +71,6 @@ async def index():
 async def welcome():
     return {'message':'Welcome, Mate!'}
 
-@app.get('/rec')
-async def recom():
-
-    def recommend_items_user(userID):
-        pivot_df =pivot_df_1
-        preds_df = preds_df_1 
-        num_recommendations = 5
-        # index starts at 0  
-        user_idx = userID-1 
-        # Get and sort the user's ratings
-        sorted_user_ratings = pivot_df.iloc[user_idx].sort_values(ascending=False)
-        print("Im sorted user ratings \n")
-        print("HELLO TEST GIT SYNC")
-        print(sorted_user_ratings.head(5))
-        # sorted_user_ratings.to_json('demo.json')
-        #sorted_user_ratings
-        sorted_user_predictions = preds_df.iloc[user_idx].sort_values(ascending=False)
-        # sorted_user_predictions.to_json('demo2.json')
-
-        print("\n")
-        print("Im sorted user predictions \n")
-        print(sorted_user_predictions.head(5))
-        #sorted_user_predictions
-        temp = pd.concat([sorted_user_ratings, sorted_user_predictions], axis=1)
-        # temp.to_json('demo',orient='records')
-        print("\n")
-        print("Im temp \n")
-        print(temp.head(5))
-        temp.index.name = 'Recommended Items'
-        temp.columns = ['user_ratings', 'user_predictions']
-        print("\n")
-        print('\n')
-        print("temp of user ratings")
-        print("\n")
-        print('\n')
-        print(temp.user_ratings)
-        print(temp.info())
-        print("Im temp after assigning cols \n")
-        # temp.user_ratings = temp.user_ratings.astype(float)
-        print(temp.head(5))
-        # temp.to_csv('demo')
-        temp = temp.loc[temp.user_ratings == 0]  
-        print("\n")
-        print("after filtering user ratings as 0 \n")
-        print(temp.head(5))
-        temp = temp.sort_values('user_predictions', ascending=False)
-        print("\n")
-        print("Im temp after sorting \n")
-        print(temp.head(5))
-        print('\nBelow are the recommended items for user(user_id = {}):\n'.format(userID))
-        
-        # print(temp.head(num_recommendations))
-
-        rec_df = temp.head(num_recommendations)
-        rec_df.reset_index(inplace=True)
-        rec_list = rec_df.values.tolist()
-        print(rec_list)
-
-        print("\n line break")
-
-        
-        rec_proudcts=[]
-        for i in range(5):
-            rec_proudcts.append(rec_list[i][0])
-            # print(rec_list[i][0])
-        # print(rec_proudcts)
-        print("\n")
-
-        # return temp.head(num_recommendations)  
-        return rec_proudcts
-
-     
-    rec = recommend_items_user(5)
-    print("\n List of recommended products inside the function \n")
-    print(rec)
-
-
-
-    # rec.reset_index(inplace=True)
-    # print(type(rec))
-    
-    # rec_list = rec.values.tolist()
-    # print("\n")
-    # print(rec_list)
-
-
-    # print("\n List of recommended products \n")
-    # rec_proudcts=[]
-    # for i in range(5):
-    #     rec_proudcts.append(rec_list[i][0])
-       
-    # print(rec_proudcts)
-    # print("\n")
-
-    return {"message":"Go back and see to your recommendations"}
-
-# @app.post("/login")
-# async def login(request:Request):
-
-#     collection = db["UserData"]
-
-#     data=await request.json()
-#     user_name =data["username"]
-#     pass_word = data["password"]
-#     print(user_name)
-#     print(pass_word)
-#     user = collection.find_one({"username":user_name})
-#     # print(user['username'])
-#     # print(user['password'])
-#     # print("Im printing userid")
-#     print(user['id'])
-
-#     if (user['password'] == pass_word):
-#             flag = True
-#             user_id = user['id']
-#             print("login success")
-        
-#     def recommend_items_user(userID):
-#         pivot_df =pivot_df_1
-#         preds_df = preds_df_1 
-#         num_recommendations = 5
-#         # index starts at 0  
-#         user_idx = userID-1 
-#         # Get and sort the user's ratings
-#         sorted_user_ratings = pivot_df.iloc[user_idx].sort_values(ascending=False)
-#         # print("Im sorted user ratings \n")
-#         # print(sorted_user_ratings.head(5))
-#         # sorted_user_ratings.to_json('demo.json')
-#         #sorted_user_ratings
-#         sorted_user_predictions = preds_df.iloc[user_idx].sort_values(ascending=False)
-#         # sorted_user_predictions.to_json('demo2.json')
-
-#         # print("\n")
-#         # print("Im sorted user predictions \n")
-#         # print(sorted_user_predictions.head(5))
-#         #sorted_user_predictions
-#         temp = pd.concat([sorted_user_ratings, sorted_user_predictions], axis=1)
-#         # temp.to_json('demo',orient='records')
-#         # print("\n")
-#         # print("Im temp \n")
-#         # print(temp.head(5))
-#         temp.index.name = 'Recommended Items'
-#         temp.columns = ['user_ratings', 'user_predictions']
-#         # print("\n")
-#         # print('\n')
-#         # print("temp of user ratings")
-#         # print("\n")
-#         # print('\n')
-#         # print(temp.user_ratings)
-#         # print(temp.info())
-#         # print("Im temp after assigning cols \n")
-#         # temp.user_ratings = temp.user_ratings.astype(float)
-#         # print(temp.head(5))
-#         # temp.to_csv('demo')
-#         temp = temp.loc[temp.user_ratings == 0]  
-#         # print("\n")
-#         # print("after filtering user ratings as 0 \n")
-#         # print(temp.head(5))
-#         temp = temp.sort_values('user_predictions', ascending=False)
-#         # print("\n")
-#         # print("Im temp after sorting \n")
-#         # print(temp.head(5))
-#         # print('\nBelow are the recommended items for user(user_id = {}):\n'.format(userID))
-        
-#         # print(temp.head(num_recommendations))
-
-#         rec_df = temp.head(num_recommendations)
-#         rec_df.reset_index(inplace=True)
-#         rec_list = rec_df.values.tolist()
-#         print(rec_list)
-
-#         # print("\n line break")
-
-        
-#         rec_proudcts=[]
-#         for i in range(5):
-#             rec_proudcts.append(rec_list[i][0])
-#             # print(rec_list[i][0])
-#         # print(rec_proudcts)
-#         # print("\n")
-
-#         # return temp.head(num_recommendations)  
-#         return rec_proudcts
-    
-#     rec = recommend_items_user(user['id'])
-#     # print("\n List of recommended products inside the function \n")
-#     # print(rec)
-
-#     db["RecList"].insert_one({
-#         "User_ID": user['id'],
-#         "rec_list": rec                                 
-#     })
-#     # resp = jsonify("user inputs added succesfully")
-#     # resp.status_code = 200
-
-#     # print(resp.status_code)
-
-#     # return resp
-
-#     return {"username": user_name, "password": pass_word, "UserID": user['id'] }
 
 @app.get('/login')
 async def login(username:str,password:str):
@@ -327,27 +120,18 @@ async def login(username:str,password:str):
             db["RecList"].insert_one({
             "User_ID": user['id'],
             "rec_list": rec                                 
-            })
-
-        
+            })       
     
     else:
-            
-            return {"res": "fail"}
-    
-    
-    
+            return {"res": "fail"} 
 
     return {"username": username, "password": password, "id": user['id'], "res":"pass"}
      
 
 @app.post('/register')
 async def create_user(request: Request):
-	# hashed_pass = Hash.bcrypt(request.password)
+
 	user_object = await request.json()
-    # print(request.json())
-	# user_object["password"] = request.password
-    # user_object["userid"] =  db["UserData"].count_documents({}) + 1
     
 	user_id = db["UserData"].insert_one(
         {
@@ -355,7 +139,7 @@ async def create_user(request: Request):
         "email_id":user_object["email_id"],
         "username": user_object["username"],
         "password": user_object["password"],
-        # "confirmpassword":user_object["confirmpassword"]
+        
         }
         )
 	print(user_object['email_id'])
@@ -402,14 +186,9 @@ async def Recommmendation_list(userId:int):
 async def pop_model():
     pop_list_df = df.groupby('productId').agg({'userId': 'count'}).reset_index()
     pop_list_df.rename(columns = {'userId': 'score'},inplace=True)
-    # print(pop_list_df.head(5))
 
-    
     pop_final_df = pop_list_df.sort_values(['score', 'productId'], ascending = [0,1]).head(5)
-    # print(type(pop_final_df))
-    # print(pop_final_df.head(5))
 
-    
     pop_final_df.reset_index(inplace=True)
     pop_final_list = pop_final_df.values.tolist()
     print(pop_final_list)
@@ -433,12 +212,9 @@ async def pop_model():
             "Product_category": details["Product_category"]
         })
 
-    # print(poplist)
-
 
     return poplist
 
-    # return pop_rec_product_list
 
 @app.get('/product_list')
 async def product_list(category:str):
@@ -456,17 +232,11 @@ async def product_list(category:str):
             "Product_category": x["Product_category"]
         })
     
-        
-        
-    # print(details)
 
     return a
 
 
-
 """ ********************************* GET REQUEST ******************************************************** """
-
-
 
 # posting images in mongo db
 
