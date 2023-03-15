@@ -19,13 +19,13 @@ const Popular_products = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        fetchItems2()
+        fetchItems()
 
     }, [userID]);
 
-    const fetchItems2 = async () => {
+    const fetchItems = async () => {
         axios.defaults.headers.post["Access-Control-Allow-Origin"] = "*";
-        const res = await fetch("http://127.0.0.1:8000/pop_list");
+        const res = await fetch("http://127.0.0.1:8000/pop_resp");
         console.log("slide data")
         console.log(res);
         const pop_items = await res.json();

@@ -62,6 +62,18 @@ class User(BaseModel):
     email: str
     userID: str
     category:str
+    ProductID:str
+
+@app.on_event("startup")
+async def startup_event():
+    # You can also print a message to confirm that the function has been called
+    print("Application startup complete!")
+
+    app.state.pop_resp = await pop_model();
+    
+    
+
+
 
 @app.get('/')
 async def index():
@@ -191,13 +203,13 @@ async def pop_model():
 
     pop_final_df.reset_index(inplace=True)
     pop_final_list = pop_final_df.values.tolist()
-    print(pop_final_list)
+    # print(pop_final_list)
 
     pop_rec_product_list = []
     for i in range(5):
         pop_rec_product_list.append(pop_final_list[i][1])                   
 
-    print(pop_rec_product_list)
+    # print(pop_rec_product_list)
 
     #loop for product iteration 
     poplist = []
@@ -213,6 +225,7 @@ async def pop_model():
         })
 
 
+    
     return poplist
 
 
@@ -234,6 +247,32 @@ async def product_list(category:str):
     
 
     return a
+
+
+#get request for product
+@app.get('/productview')
+async def product_view(ProductID:str):
+    a=[]
+    for x in db['Product_Data'].find({"Product_ID":ProductID}):
+                a.append({
+            "product_id":x["Product_ID"],
+            "product_name":x["Product_name"],
+            "product_img": x["str_base64"],
+            "product_price": x["Product_price"],
+            "Product_description": x["Product_description"].strip(),
+            "Product_category": x["Product_category"]
+        })
+                
+    print(a)
+
+
+    return a
+
+# testing endpoint
+@app.get('/pop_resp')
+async def pop_response():
+    
+    return app.state.pop_resp
 
 
 """ ********************************* GET REQUEST ******************************************************** """
