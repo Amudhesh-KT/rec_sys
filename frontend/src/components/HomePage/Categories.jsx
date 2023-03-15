@@ -28,8 +28,8 @@ function useForceUpdate() {
 
 const Categories = () => {
 
-    const [SelectedCategory, setSelectedCategory] = useState("")
-    const [products, setProducts] = useState([]);
+    // const [SelectedCategory, setSelectedCategory] = useState("")
+    // const [products, setProducts] = useState([]);
 
 
     // user context for category name
@@ -38,9 +38,9 @@ const Categories = () => {
 
 
 
-    useEffect(() => {
+    // useEffect(() => {
 
-    }, [SelectedCategory])
+    // }, [SelectedCategory])
 
 
     // Function to fetch products by category from backend API
