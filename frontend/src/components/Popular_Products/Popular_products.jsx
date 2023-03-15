@@ -1,4 +1,5 @@
 import { React, useEffect, useContext, useState } from "react"
+import { useNavigate } from "react-router-dom"
 import axios from "axios"
 import Slider from "react-slick"
 import "slick-carousel/slick/slick.css"
@@ -7,11 +8,15 @@ import "../../App.css"
 
 // usercontext for userid
 import User_context from '../User_data/User_context.jsx'
+import ProductID_context from "../ProductID_context"
 const Popular_products = () => {
 
     const [pop_data, setpop_data] = useState([]);
+    const {productid, setproductid} = useContext(ProductID_context);
 
     const { userID } = useContext(User_context)
+
+    const navigate = useNavigate();
 
     useEffect(() => {
         fetchItems()
@@ -49,6 +54,13 @@ const Popular_products = () => {
         <>
             <Slider {...settings}>
                 {pop_data.map((value, index) => {
+                     const handleProductid = () => {
+                        let id = value.product_id
+                        console.log(id)
+                        setproductid(id)
+                        navigate('/product')
+
+                    }
                     return (
                         <div className="slider_comp_main">
                             <div className="slidercomponent_main">
@@ -59,7 +71,7 @@ const Popular_products = () => {
                                         <p>{value.Product_description}</p>
                                         {/* <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis lobortis consequat eu, quam etiam at quis ut convallis.</p> */}
                                         <p>Rs.{value.Product_price}/-</p>
-                                        <button className='btn-primary'>Visit Collections</button>
+                                        <button className='btn-primary' onClick={handleProductid}>View Product</button>
                                     </div>
                                     <div className='right'>
                                         <img className="slider_img" src={`data:image/png;base64,${value.product_img}`} alt='' />
