@@ -1,12 +1,12 @@
 import React from 'react'
-import { createContext, useState,useContext } from 'react'
+import { createContext, useState } from 'react'
 
-const ProductID_context = createContext({})
+const Product_context = createContext({})
 
-export const ProductIDProvider = ({children}) => {
+export const ProductProvider = ({children}) =>{
+  const [productid, setproductid] = useState("");
+  return (<Product_context.Provider value = {{productid, setproductid}}>{children}</Product_context.Provider>)
 
-    const [productid, setproductid] = useState("")
-  return ( <ProductID_context.Provider value={{productid, setproductid}} > {children} </ProductID_context.Provider> )
 }
 
-export default ProductID_context
+export default Product_context

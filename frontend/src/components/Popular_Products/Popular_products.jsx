@@ -8,11 +8,19 @@ import "../../App.css"
 
 // usercontext for userid
 import User_context from '../User_data/User_context.jsx'
-import ProductID_context from "../ProductID_context"
+
+import Product_context from "../ProductID_context.jsx"
+
+
+
+
 const Popular_products = () => {
 
+    // usercontext for userid
+    const { setproductid, productid } = useContext(Product_context)
+
     const [pop_data, setpop_data] = useState([]);
-    const {productid, setproductid} = useContext(ProductID_context);
+    
 
     const { userID } = useContext(User_context)
 
