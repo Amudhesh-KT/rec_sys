@@ -20,7 +20,6 @@ const Popular_products = () => {
     const { setproductid, productid } = useContext(Product_context)
 
     const [pop_data, setpop_data] = useState([]);
-    
 
     const { userID } = useContext(User_context)
 
@@ -66,6 +65,7 @@ const Popular_products = () => {
                         let id = value.product_id
                         console.log(id)
                         setproductid(id)
+                        console.log(productid)
                         navigate('/product')
 
                     }
