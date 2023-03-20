@@ -3,24 +3,33 @@ import { useEffect,useState,useContext } from 'react';
 import axios from 'axios';
 import { Card, Grid, Row, Text } from "@nextui-org/react";
 import "./Product_view.css"
-import ProductID_context from '../ProductID_context';
+import ProductID_context from '../ProductID_context.jsx';
 
 const Product_view = () => {
-    const { Product_ID } = useContext(ProductID_context)
-    useEffect(() => {
-        fetchProduct();
-    }, [Product_ID]);
+
+    const {product} = useContext(ProductID_context)
+
+    console.log(product)
 
     const [Product_item, setProduct_item] = useState([])
 
+    console.log(product)
+    useEffect(() => {
+        fetchProduct();
+    }, [product]);
+
+    
+
+   
+
     const fetchProduct= async() =>{
         axios.defaults.headers.post["Access-Control-Allow-Origin"] = "*";
-    const res = await fetch("http://127.0.0.1:8000/productview" + Product_ID);
+    const res = await fetch("http://127.0.0.1:8000/productview?ProductID=" + product);
 
     console.log(res.data);
-    const product_item = await res.json();
+    const Product = await res.json();
 
-    setProduct_item(product_item);
+    setProduct_item(Product);
     }
   return (
     <div>

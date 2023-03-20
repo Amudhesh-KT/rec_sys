@@ -12,8 +12,8 @@ import ProductID_context from "../ProductID_context"
 const Popular_products = () => {
 
     const [pop_data, setpop_data] = useState([]);
-    const {productid, setproductid} = useContext(ProductID_context);
-
+    const {setproductid,productid } = useContext(ProductID_context)
+    
     const { userID } = useContext(User_context)
 
     const navigate = useNavigate();
@@ -58,6 +58,7 @@ const Popular_products = () => {
                         let id = value.product_id
                         console.log(id)
                         setproductid(id)
+                        console.log(productid)
                         navigate('/product')
 
                     }
