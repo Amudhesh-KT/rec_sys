@@ -6,8 +6,7 @@ import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
 import "../../App.css"
 
-// usercontext for userid
-import User_context from '../User_data/User_context.jsx'
+// usecontext for userid
 import Product_context from "../Products/Product_context"
 
 
@@ -23,14 +22,18 @@ const Popular_products = () => {
 
     const [pop_data, setpop_data] = useState([]);
 
-    const { userID } = useContext(User_context)
+    
 
     const navigate = useNavigate();
+
+    let user__id = localStorage.getItem('user__id');
+    console.log("from recommend page")
+    console.log(user__id)
 
     useEffect(() => {
         fetchItems()
 
-    }, [userID]);
+    }, [user__id]);
 
     const fetchItems = async () => {
         axios.defaults.headers.post["Access-Control-Allow-Origin"] = "*";

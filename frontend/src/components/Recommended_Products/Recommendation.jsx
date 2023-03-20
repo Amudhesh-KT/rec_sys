@@ -1,14 +1,8 @@
-import { React, useContext, useEffect, useState } from "react"
+import { React, useEffect, useState } from "react"
 import axios from "axios"
 
 import Progress_bar from "./Progressbar";
 
-import { Text } from "@nextui-org/react";
-
-
-// usercontext for userid
-import User_context from '../User_data/User_context'
-import Slider from "react-slick"
 
 const Recommendation = () => {
     const settings = {
@@ -21,14 +15,13 @@ const Recommendation = () => {
 
     const [Final_out, setFinal_out] = useState([]);
 
-    const [Num, setNum] = useState('')
-
-    const { userID } = useContext(User_context)
-
+    let user__id = localStorage.getItem('user__id');
+    console.log("from recommend page")
+    console.log(user__id)
 
     useEffect(() => {
         fetchItems();
-    }, [userID]);
+    }, [user__id]);
 
     function Randomnum(min, max) {
         return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -46,9 +39,7 @@ const Recommendation = () => {
 
     const fetchItems = async () => {
 
-        let user__id = localStorage.getItem('user__id');
-        console.log("from recommend page")
-        console.log(user__id)
+  
 
 
         axios.defaults.headers.post["Access-Control-Allow-Origin"] = "*";
