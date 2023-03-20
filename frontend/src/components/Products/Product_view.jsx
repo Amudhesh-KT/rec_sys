@@ -50,16 +50,15 @@ const {productid} = useContext(Product_context)
     <div>
            {
             Product_item[0] &&  <div class="product-card">
-            <div class="badge">Hot</div>
             <div class="product-tumb">
-                {/* <img src="https://i.imgur.com/xdbHo4E.png" alt=""> */}
+                <img src={`data:image/png;base64,${Product_item[0].product_img}`} alt=""/>
             </div>
             <div class="product-details">
-                <span class="product-catagory">Women,bag</span>
-                <h4><a href="">{Product_item[0].product_id}</a></h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero, possimus nostrum!</p>
+                <span class="product-catagory">{Product_item[0].Product_category}</span>
+                <h4><a href="">{Product_item[0].product_name}</a></h4>
+                <p>{Product_item[0].Product_description}</p>
                 <div class="product-bottom-details">
-                    <div class="product-price"><small>$96.00</small>$230.99</div>
+                    <div class="product-price">Rs. {Product_item[0].product_price} /-</div>
                     <div class="product-links">
                         <a href=""><i class="fa fa-heart"></i></a>
                         <a href=""><i class="fa fa-shopping-cart"></i></a>
