@@ -86,6 +86,7 @@ const Popular_products = () => {
                                         <p>{value.Product_description}</p>
                                         {/* <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis lobortis consequat eu, quam etiam at quis ut convallis.</p> */}
                                         <p>Rs.{value.Product_price}/-</p>
+                                        
                                         <button className='btn-primary' onClick={handleProductid}>View Product</button>
                                     </div>
                                     <div className='right'>

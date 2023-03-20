@@ -44,3 +44,6 @@ footer li {
   /* font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; */
 color: #fff;
 }
+.footer_list_hover{
+ cursor: pointer;
+}
