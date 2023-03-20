@@ -12,39 +12,37 @@ import { UserProvider } from './components/User_data/User_context';
 import { CategoryProvider } from './components/HomePage/Category_context';
 
 
+import { ProductProvider } from './components/Products/Product_context';
 
-import { ProductProvider } from './components/ProductID_context';
 import Product_view from './components/Products/Product_view';
 
 
 
 function App() {
   return (
-    
+
     <Router>
       <div className="App">
-        <ProductProvider>
+
         <UserProvider>
           <CategoryProvider>
-          
-            <Routes>
-              <Route path='/' element={<><Login /></>} />
-              {/* <Route path='/navbar' element={<><Navbar /></>} /> */}
-              {/* <Route path='/login' element={<></>} /> */}
-              <Route path='/home' element={<><Header /><Products /><Rec_Products /><Footer /></>} />
-              <Route path='/register' element={<Register />} />
-              <Route path='/product' element={<Product_view></Product_view>}/>
+            <ProductProvider>
+              <Routes>
+                <Route path='/' element={<><Login /></>} />
+                <Route path='/home' element={<><Header /><Products /><Rec_Products /><Footer /></>} />
+                <Route path='/register' element={<Register />} />
+                <Route path='/product/:pid' element={<Product_view></Product_view>} />
 
-            </Routes>
-          
+              </Routes>
+            </ProductProvider>
           </CategoryProvider>
         </UserProvider>
-        </ProductProvider>
+
       </div>
     </Router>
 
-    
-    );
+
+  );
 }
 
 export default App;

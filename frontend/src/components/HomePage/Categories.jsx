@@ -1,4 +1,6 @@
 import { React, useState, useEffect, useContext } from "react"
+
+
 import cat1 from "../../assets/images/category/cat1.png"
 import cat2 from "../../assets/images/category/cat2.png"
 import cat3 from "../../assets/images/category/cat3.png"
@@ -15,42 +17,23 @@ import cat13 from "../../assets/images/category/cat13.png"
 import cat14 from "../../assets/images/category/cat14.png"
 import cat15 from "../../assets/images/category/cat15.png"
 import cat16 from "../../assets/images/category/cat16.png"
+
+
 import Category_context from "./Category_context"
 
 
-function useForceUpdate() {
-    const [value, setValue] = useState(0); // integer state
-    return () => setValue(value => value + 1); // update state to force render
-    // A function that increment 👆🏻 the previous state like here 
-    // is better than directly setting `setValue(value + 1)`
-}
+// function useForceUpdate() {
+//     const [value, setValue] = useState(0);
+//     return () => setValue(value => value + 1); 
+   
+// }
 
 
 const Categories = () => {
 
-    // const [SelectedCategory, setSelectedCategory] = useState("")
-    // const [products, setProducts] = useState([]);
-
-
-    // user context for category name
     const { setcategory, category } = useContext(Category_context);
 
 
-
-
-    // useEffect(() => {
-
-    // }, [SelectedCategory])
-
-
-    // Function to fetch products by category from backend API
-    // const fetchProductsByCategory = async (category) => {
-    //   const response = await fetch(`/products/${category}`);
-    //   const datapro = await response.json();
-    //   setProducts(datapro);
-    // };
-
-    // Event handler for category selection
 
     const data = [
         {
@@ -144,14 +127,15 @@ const Categories = () => {
 
 
                         setcategory(catego);
-                        console.log("usecontext")
+
+
+                        console.log("usecontext fucntion")
                         console.log(category)
 
 
-                        console.log("normal")
-                        console.log(catego)
+                        
 
-                        console.log("Im in func")
+                       
 
                         window.scrollBy(0, 505);
                     };

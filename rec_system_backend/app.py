@@ -62,7 +62,7 @@ class User(BaseModel):
     email: str
     userID: str
     category:str
-    ProductID:str
+    productid:str
 
 @app.on_event("startup")
 async def startup_event():
@@ -251,9 +251,9 @@ async def product_list(category:str):
 
 #get request for product
 @app.get('/productview')
-async def product_view(ProductID:str):
+async def product_view(productid:str):
     a=[]
-    for x in db['Product_Data'].find({"Product_ID":ProductID}):
+    for x in db['Product_Data'].find({"Product_ID":productid}):
                 a.append({
             "product_id":x["Product_ID"],
             "product_name":x["Product_name"],

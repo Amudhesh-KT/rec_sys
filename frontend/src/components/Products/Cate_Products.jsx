@@ -5,18 +5,16 @@ import "slick-carousel/slick/slick-theme.css"
 
 import axios from "axios"
 
-// importing usercontext
-import User_context from "../User_data/User_context.jsx"
 
 // importing category context
 import Category_context from "../HomePage/Category_context.jsx"
 
 const Cate_Products = () => {
 
-  const { userID } = useContext(User_context)
+
 
   const {category} = useContext(Category_context)
-
+  
 
   useEffect(() => {
     fetchProducts();
@@ -38,10 +36,18 @@ const Cate_Products = () => {
     axios.defaults.headers.post["Access-Control-Allow-Origin"] = "*";
     const res = await fetch("http://127.0.0.1:8000/product_list?category=" + category);
 
-    console.log(res.data);
+   
+
+    
+
+    
     const product_items = await res.json();
 
+    console.log(product_items)
+
     setproduct_list(product_items);
+
+    
 
 
   }

@@ -8,16 +8,18 @@ import "../../App.css"
 
 // usercontext for userid
 import User_context from '../User_data/User_context.jsx'
+import Product_context from "../Products/Product_context"
 
-import Product_context from "../ProductID_context.jsx"
+
 
 
 
 
 const Popular_products = () => {
 
-    // usercontext for userid
-    const { setproductid, productid } = useContext(Product_context)
+    const {setproductid,productid } = useContext(Product_context)
+
+   
 
     const [pop_data, setpop_data] = useState([]);
 
@@ -63,10 +65,15 @@ const Popular_products = () => {
                 {pop_data.map((value, index) => {
                      const handleProductid = () => {
                         let id = value.product_id
-                        console.log(id)
-                        setproductid(id)
-                        console.log(productid)
-                        navigate('/product')
+                        console.log(id);
+
+                        setproductid(id);
+                        
+                        
+
+                        console.log("im from product context")
+                        
+                        navigate('/product/'+id)
 
                     }
                     return (
