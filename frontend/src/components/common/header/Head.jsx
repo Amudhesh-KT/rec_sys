@@ -1,6 +1,7 @@
 import React from "react"
 import LogoutIcon from '@mui/icons-material/Logout';
 import { Link, useNavigate,NavLink } from "react-router-dom";
+import Tooltip from '@mui/material/Tooltip';
 
 
 const Head = () => {
@@ -21,7 +22,8 @@ const Head = () => {
           <div className='right row RText'>
             {/* <label>Theme FAQ"s</label>
             <label>Need Help?</label> */}
-            <label className="logout_btn" onClick={Logout}><LogoutIcon/></label>
+            <Tooltip title="Logout" arrow>
+            <label className="logout_btn" onClick={Logout}><LogoutIcon/></label></Tooltip>
             {/* <FontAwesomeIcon icon="fa-solid fa-right-from-bracket">Logout</FontAwesomeIcon> */}
           </div>
         </div>
