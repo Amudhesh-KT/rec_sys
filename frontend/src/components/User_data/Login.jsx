@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Link, useNavigate, NavLink } from "react-router-dom";
-import User_context from "./User_context";
+
 import loginstyle from "./Login.css"
 
 import axios from "axios"
@@ -19,19 +19,17 @@ const Login = () => {
 
   // Usestates definition
   const [input, setInput] = useState({ email: "", password: "" });
-  const [errorMessage, seterrorMessage] = useState("");
-  const [successMessage, setsuccessMessage] = useState("");
-
-  // usercontext for userid
-  const { setUserID, userID } = useContext(User_context)
+ 
 
 
 
 
-  useEffect(() => {
-    console.log("Im from useffect")
-    console.log(userID)
-  }, [userID])
+
+
+  // useEffect(() => {
+  //   console.log("Im from useffect")
+   
+  // }, [userID])
 
   // function to check userid and password
   const caller = async () => {
@@ -53,8 +51,6 @@ const Login = () => {
     console.log(res.data.id)
     // console.log(userID)
 
-    setUserID(res.data.id)
-    console.log(res.data.res)
 
     // To store data
     let u_id = localStorage.setItem('user__id', res.data.id);

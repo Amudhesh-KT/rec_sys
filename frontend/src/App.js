@@ -8,7 +8,7 @@ import Login from "./components/User_data/Login.jsx"
 import Register from "./components/User_data/Register.jsx"
 import Products from './components/Products/Products';
 import Rec_Products from './components/Recommended_Products/Rec_Products';
-import { UserProvider } from './components/User_data/User_context';
+
 import { CategoryProvider } from './components/HomePage/Category_context';
 
 
@@ -24,7 +24,7 @@ function App() {
     <Router>
       <div className="App">
 
-        <UserProvider>
+   
           <CategoryProvider>
             <ProductProvider>
               <Routes>
@@ -36,7 +36,7 @@ function App() {
               </Routes>
             </ProductProvider>
           </CategoryProvider>
-        </UserProvider>
+
 
       </div>
     </Router>
