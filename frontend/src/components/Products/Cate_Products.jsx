@@ -9,14 +9,14 @@ import Product_context from "../Products/Product_context"
 
 
 // importing usercontext
-import User_context from "../User_data/User_context.jsx"
+// import User_context from "../User_data/User_context.jsx"
 
 // importing category context
 import Category_context from "../HomePage/Category_context.jsx"
 
 const Cate_Products = () => {
 
-  const { userID } = useContext(User_context)
+  // const { userID } = useContext(User_context)
 
   const {category} = useContext(Category_context)
   const navigate = useNavigate();
@@ -83,7 +83,7 @@ const Cate_Products = () => {
                   <img src={`data:image/png;base64,${value.product_img}`} />
                 </div>
                 
-                <span className='tright'>{value.Product_description}</span>
+                <span className='tright'>{value.Product_description.split(",")[0]}</span>
 
                 <p>Rs. {value.product_price} /-</p>
                 <button className='btn-primary' onClick={handleProductid}>View Product</button>

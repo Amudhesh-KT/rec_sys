@@ -99,7 +99,7 @@ const Recommendation = () => {
 
                         <div>
                             <div className='box product grid_size' key={index}>
-                                <h5 >{percentage}% match</h5>
+                                <h5 className="left_align">{percentage}% match</h5>
 
                                 <Progress_bar bgcolor="red" progress={percentage} height={5} />
                                 <div className='nametop d_flex'>
@@ -110,7 +110,7 @@ const Recommendation = () => {
                                     <img src={`data:image/png;base64,${val.product_img}`} />
                                 </div>
 
-                                <span className='tright'>{val.Product_description}</span>
+                                <span className='tright'>{val.Product_description.split(",")[0]}</span>
 
                                 <p>Rs. {val.Product_price} /-</p>
                                 <button className='btn-primary' onClick={handleProductid}>View Product</button>
