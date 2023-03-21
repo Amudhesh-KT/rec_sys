@@ -4,6 +4,9 @@ import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
 
 import axios from "axios"
+import { useNavigate } from "react-router-dom"
+import Product_context from "../Products/Product_context"
+
 
 
 // importing category context
@@ -14,6 +17,8 @@ const Cate_Products = () => {
 
 
   const {category} = useContext(Category_context)
+  const navigate = useNavigate();
+  const {setproductid,productid } = useContext(Product_context)
   
 
   useEffect(() => {
@@ -60,6 +65,19 @@ const Cate_Products = () => {
     <>
       <Slider {...settings}>
         {product_list.map((value, index) => {
+          const handleProductid = () => {
+            let id = value.product_id
+            console.log(id);
+
+            setproductid(id);
+            
+            
+
+            console.log("im from product context")
+            
+            navigate('/product/'+id)
+
+        }
           return (
             <>
               <div className='box product grid_size' key={index}>
@@ -74,7 +92,7 @@ const Cate_Products = () => {
                 <span className='tright'>{value.Product_description}</span>
 
                 <p>Rs. {value.product_price} /-</p>
-                
+                <button className='btn-primary' onClick={handleProductid}>View Product</button>
               </div>
             </>
           )
