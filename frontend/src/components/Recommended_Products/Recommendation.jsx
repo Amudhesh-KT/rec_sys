@@ -1,5 +1,8 @@
-import { React, useEffect, useState } from "react"
+import { React, useEffect, useState,useContext } from "react"
 import axios from "axios"
+import { useNavigate } from "react-router-dom"
+import Product_context from "../Products/Product_context"
+
 
 import Progress_bar from "./Progressbar";
 
@@ -12,6 +15,8 @@ const Recommendation = () => {
         slidesToScroll: 1,
         autoplay: true,
     }
+    const navigate = useNavigate();
+    const {setproductid,productid } = useContext(Product_context)
 
     const [Final_out, setFinal_out] = useState([]);
 
@@ -74,6 +79,19 @@ const Recommendation = () => {
 
             {/* <div className='content grid product rec_products' > */}
             {Final_out.map((val, index) => {
+                const handleProductid = () => {
+                    let id = val.product_id
+                    console.log(id);
+
+                    setproductid(id);
+                    
+                    
+
+                    console.log("im from product context")
+                    
+                    navigate('/product/'+id)
+
+                }
 
                 const percentage = Randomnum(80, 100);
                 return (
@@ -95,6 +113,7 @@ const Recommendation = () => {
                                 <span className='tright'>{val.Product_description}</span>
 
                                 <p>Rs. {val.Product_price} /-</p>
+                                <button className='btn-primary' onClick={handleProductid}>View Product</button>
 
                             </div>
                         </div>

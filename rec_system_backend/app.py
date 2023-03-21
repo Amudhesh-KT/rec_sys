@@ -70,11 +70,8 @@ async def startup_event():
     print("Application startup complete!")
 
     app.state.pop_resp = await pop_model();
+
     
-    
-
-
-
 @app.get('/')
 async def index():
     return {'message':'hello, world'}
