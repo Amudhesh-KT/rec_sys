@@ -3,7 +3,8 @@ import axios from "axios";
 import {
     BrowserRouter as Router,
     Routes,
-    Navigate,
+    useNavigate,
+    NavLink,
     Route,
     Link,
 } from "react-router-dom";
@@ -11,10 +12,12 @@ import "../../App.css"
 
 
 const Register = () => {
+
+    const navigate = useNavigate();
     const [name, setName] = useState("");
     const [Email, setEmail] = useState("")
     const [password, setPassword] = useState("");
-    const flag = false
+    let flag = false
     // const [confrimPassword, setconfrimPassword] = useState("")
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -30,7 +33,8 @@ const Register = () => {
             .then((response) => {
                 console.log(response);
                 flag = true
-                alert(response);
+                alert("user registered successfully");
+                navigate('/')
 
             })
             .catch((error) => {
