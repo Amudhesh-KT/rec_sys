@@ -1,15 +1,22 @@
 import React, { useState } from "react";
 import axios from "axios";
 import {
-    BrowserRouter as Link,} from "react-router-dom";
+    BrowserRouter as Router,
+    Routes,
+    Navigate,
+    Route,
+    Link,
+} from "react-router-dom";
 import "../../App.css"
 
 
 const Register = () => {
+
+    const navigate = useNavigate();
     const [name, setName] = useState("");
     const [Email, setEmail] = useState("")
     const [password, setPassword] = useState("");
-    const flag = false
+    let flag = false
     // const [confrimPassword, setconfrimPassword] = useState("")
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -24,7 +31,7 @@ const Register = () => {
             .post("http://127.0.0.1:8000/register", data)
             .then((response) => {
                 console.log(response);
-                const flag = true;
+                flag = true
                 alert(response);
 
             })

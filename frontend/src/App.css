@@ -141,12 +141,12 @@ button {
 /*---------category----------*/
 .btn-primary {
   background: #e94560;
-  padding: 12px 30px;
+  padding: 12px 40px;
   font-weight: bold;
   color: #fff;
   border-radius: 5px;
   cursor: pointer;
-  /* margin-left: 20px; */
+  margin-left: 20px;
 }
 
 .top {
@@ -653,11 +653,10 @@ element.style {
   margin-top: 20px !important;
 }
 .grid_size{
-  height: 290px;
+  height: 250px;
   width:auto;
   text-align: center; 
   display: block;  
-  margin-top: 20px;
 }
 .left_align{
   text-align: left;
