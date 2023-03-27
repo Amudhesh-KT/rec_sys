@@ -146,7 +146,7 @@ button {
   color: #fff;
   border-radius: 5px;
   cursor: pointer;
-  margin-left: 20px;
+  /* margin-left: 20px; */
 }
 
 .top {
@@ -653,7 +653,7 @@ element.style {
   margin-top: 20px !important;
 }
 .grid_size{
-  height: 250px;
+  height: 290px;
   width:auto;
   text-align: center; 
   display: block;  

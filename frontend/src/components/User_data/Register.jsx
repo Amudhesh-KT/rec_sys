@@ -3,7 +3,7 @@ import axios from "axios";
 import {
     BrowserRouter as Router,
     Routes,
-    Navigate,
+    useNavigate,
     Route,
     Link,
 } from "react-router-dom";
