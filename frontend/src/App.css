@@ -6,6 +6,10 @@
 
 }
 
+.footer-title{
+  color: #fcfcfc;
+}
+
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
 
 html {
@@ -137,12 +141,12 @@ button {
 /*---------category----------*/
 .btn-primary {
   background: #e94560;
-  padding: 12px 40px;
+  padding: 12px 30px;
   font-weight: bold;
   color: #fff;
   border-radius: 5px;
   cursor: pointer;
-  margin-left: 20px;
+  /* margin-left: 20px; */
 }
 
 .top {
@@ -160,6 +164,7 @@ button {
 
 .head {
   size: 0;
+  height: 38%;
 }
 
 .discount {
@@ -181,7 +186,7 @@ button {
 /*---------product-----------*/
 .product {
   background: #fff;
-  padding: 20px;
+  padding: 10px;
   position: relative;
   border-radius: 8px;
   box-shadow: rgb(3 0 71 / 9%) 0px 1px 3px;
@@ -644,11 +649,15 @@ element.style {
   position: absolute;
   right: 0;
 }
+.proct_name{
+  margin-top: 20px !important;
+}
 .grid_size{
   height: 290px;
   width:auto;
   text-align: center; 
   display: block;  
+  margin-top: 20px;
 }
 .left_align{
   text-align: left;

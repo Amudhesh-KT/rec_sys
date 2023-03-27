@@ -1,12 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import {
-    BrowserRouter as Router,
-    Routes,
-    Navigate,
-    Route,
-    Link,
-} from "react-router-dom";
+    BrowserRouter as Link,} from "react-router-dom";
 import "../../App.css"
 
 
@@ -29,14 +24,14 @@ const Register = () => {
             .post("http://127.0.0.1:8000/register", data)
             .then((response) => {
                 console.log(response);
-                flag = true
+                const flag = true;
                 alert(response);
 
             })
             .catch((error) => {
                 alert(error);
             });
-        if (flag == true) {
+        if (flag === true) {
             console.log("Hii")
         }
     };

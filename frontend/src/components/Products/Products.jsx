@@ -1,11 +1,17 @@
-import React from "react"
+import {React, useContext} from "react"
 import "../../App.css"
 import Home from "../HomePage/Home.jsx"
 
 import { Text } from "@nextui-org/react";
 import Cate_Products from "./Cate_Products"
 
+import Category_context from "../HomePage/Category_context.jsx"
+
 const Products = () => {
+
+  const { category } = useContext(Category_context)
+
+
   return (
     <>
     <Home/>
@@ -25,7 +31,7 @@ const Products = () => {
             }}
             weight="bold"
           >
-           Products
+           {category}
           </Text>
             </div>
             <div className='heading-right row '>

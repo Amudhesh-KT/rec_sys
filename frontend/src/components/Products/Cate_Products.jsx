@@ -7,6 +7,9 @@ import axios from "axios"
 import { useNavigate } from "react-router-dom"
 import Product_context from "../Products/Product_context"
 
+import Box from '@mui/material/Box';
+import Rating from '@mui/material/Rating';
+import Typography from '@mui/material/Typography';
 
 // importing usercontext
 // import User_context from "../User_data/User_context.jsx"
@@ -18,14 +21,14 @@ const Cate_Products = () => {
 
   // const { userID } = useContext(User_context)
 
-  const {category} = useContext(Category_context)
+  const { category } = useContext(Category_context)
   const navigate = useNavigate();
-  const {setproductid,productid } = useContext(Product_context)
-  
+  const { setproductid, productid } = useContext(Product_context)
+
 
   useEffect(() => {
     fetchProducts();
-  }, [category ]);
+  }, [category]);
 
 
 
@@ -39,7 +42,7 @@ const Cate_Products = () => {
 
   const [product_list, setproduct_list] = useState([]);
 
-  const fetchProducts= async () =>{
+  const fetchProducts = async () => {
     axios.defaults.headers.post["Access-Control-Allow-Origin"] = "*";
     const res = await fetch("http://127.0.0.1:8000/product_list?category=" + category);
 
@@ -64,28 +67,32 @@ const Cate_Products = () => {
             console.log(id);
 
             setproductid(id);
-            
-            
+
+
 
             console.log("im from product context")
-            
-            navigate('/product/'+id)
 
-        }
+            navigate('/product/' + id)
+
+          }
           return (
             <>
               <div className='box product grid_size' key={index}>
-                <div className='nametop d_flex'>
+                <div className='nametop d_flex proct_name'>
                   <span className='tleft'>{value.product_name}</span>
-                  
+
                 </div>
                 <div className='img img_size'>
                   <img src={`data:image/png;base64,${value.product_img}`} />
                 </div>
-                
+
                 <span className='tright'>{value.Product_description.split(",")[0]}</span>
 
                 <p>Rs. {value.product_price} /-</p>
+                <div>
+                
+                <Rating name="read-only" value={value.Product_ratings} precision={0.25}  size="small" readOnly />
+                </div>
                 <button className='btn-primary' onClick={handleProductid}>View Product</button>
               </div>
             </>

@@ -171,14 +171,15 @@ async def Recommmendation_list(userId:int):
     # loop for product iteration 
     a = []
     for i in json_list:
-        details = db["Product_Data"].find_one({"Product_ID":i})
+        details = db["ProductData"].find_one({"Product_ID":i})
         a.append({
             "product_id":details["Product_ID"],
             "product_name":details["Product_name"],
             "product_img": details["str_base64"],
             "Product_price": details["Product_price"],
             "Product_description": details["Product_description"].strip(),
-            "Product_category": details["Product_category"]
+            "Product_category": details["Product_Category"],
+            "Product_ratings": details["Rating"]
         })
 
 
@@ -204,21 +205,24 @@ async def pop_model():
 
     pop_rec_product_list = []
     for i in range(5):
-        pop_rec_product_list.append(pop_final_list[i][1])                   
+        pop_rec_product_list.append(pop_final_list[i][1])
+                       
 
     # print(pop_rec_product_list)
 
     #loop for product iteration 
     poplist = []
     for i in pop_rec_product_list:
-        details = db["Product_Data"].find_one({"Product_ID":i})
+        details = db["ProductData"].find_one({"Product_ID":i})
+        
         poplist.append({
             "product_id":details["Product_ID"],
             "product_name":details["Product_name"],
             "product_img": details["str_base64"],
             "Product_price": details["Product_price"],
             "Product_description": details["Product_description"].strip(),
-            "Product_category": details["Product_category"]
+            "Product_category": details["Product_Category"],
+            "Product_ratings": details["Rating"]
         })
 
 
@@ -232,15 +236,17 @@ async def product_list(category:str):
     print(category)
     
     a=[]
-    for x in db['Product_Data'].find({"Product_category":category}):
+    for x in db['ProductData'].find({"Product_Category":category}):
                 a.append({
             "product_id":x["Product_ID"],
             "product_name":x["Product_name"],
             "product_img": x["str_base64"],
             "product_price": x["Product_price"],
             "Product_description": x["Product_description"].strip(),
-            "Product_category": x["Product_category"]
+            "Product_category": x["Product_Category"],
+            "Product_ratings": x["Rating"]
         })
+    
     
 
     return a
@@ -250,14 +256,15 @@ async def product_list(category:str):
 @app.get('/productview')
 async def product_view(productid:str):
     a=[]
-    for x in db['Product_Data'].find({"Product_ID":productid}):
+    for x in db['ProductData'].find({"Product_ID":productid}):
                 a.append({
             "product_id":x["Product_ID"],
             "product_name":x["Product_name"],
             "product_img": x["str_base64"],
             "product_price": x["Product_price"],
             "Product_description": x["Product_description"].strip(),
-            "Product_category": x["Product_category"]
+            "Product_category": x["Product_Category"],
+            "Product_ratings": x["Rating"]
         })
                 
     print(a)

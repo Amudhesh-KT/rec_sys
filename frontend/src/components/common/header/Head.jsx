@@ -1,6 +1,6 @@
 import React from "react"
 import LogoutIcon from '@mui/icons-material/Logout';
-import { Link, useNavigate,NavLink } from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 import Tooltip from '@mui/material/Tooltip';
 
 
@@ -11,11 +11,11 @@ const Head = () => {
   }
   return (
     <>
-      <section className='head' style={{height:"35%"}}>
+      <section className='head' >
         <div className='container d_flex'>
           <div className='left row'>
             <i className='fa fa-phone'></i>
-            <label> +91 9876543210</label>
+            <label> +91 9871234510</label>
             <i className='fa fa-envelope'></i>
             <label> furniture@ecomm.com</label>
           </div>

@@ -5,6 +5,7 @@ import Product_context from "../Products/Product_context"
 
 
 import Progress_bar from "./Progressbar";
+import Rating from '@mui/material/Rating';
 
 
 const Recommendation = () => {
@@ -113,6 +114,9 @@ const Recommendation = () => {
                                 <span className='tright'>{val.Product_description.split(",")[0]}</span>
 
                                 <p>Rs. {val.Product_price} /-</p>
+
+                                <Rating name="read-only" value={val.Product_ratings} precision={0.5} size="small" readOnly />
+
                                 <button className='btn-primary' onClick={handleProductid}>View Product</button>
 
                             </div>

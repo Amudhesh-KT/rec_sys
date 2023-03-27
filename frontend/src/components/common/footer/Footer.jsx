@@ -1,17 +1,18 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
 import "./style.css"
-import logo from "../../../assets/images/digi_logo.png"
+
 
 const Footer = () => {
-  const navigate = useNavigate()
+ 
   return (
     <>
       <footer>
         <div className='container grid2'>
           <div className='box'>
             {/* <img height={70} width={170} src={logo}/> */}
-            <p className="footer_title">Digiverz</p>
+           
+            <h1 className="footer-title"> &nbsp; Digiverz</h1>
+            
             <p className="move_right">Furniture E-commerce</p>
 
           </div>

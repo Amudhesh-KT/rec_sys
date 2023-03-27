@@ -1,17 +1,15 @@
 import React from "react"
 import logo from "../../../assets/images//digi_logo.png"
-import { Link } from "react-router-dom"
 import "../../../App.css"
-import { fontAwesome } from "fontawesome"
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Button } from "@nextui-org/react"
+
 
 const Search = ({ CartItem }) => {
+
   // fixed Header
-  window.addEventListener("scroll", function () {
-    const search = document.querySelector(".search")
-    search.classList.toggle("active", window.scrollY > 100)
-  })
+  // window.addEventListener("scroll", function () {
+  //   const search = document.querySelector(".search")
+  //   search.classList.toggle("active", window.scrollY > 100)
+  // })
 
   return (
     <>
@@ -19,17 +17,14 @@ const Search = ({ CartItem }) => {
         <div className='container c_flex' style={{ width: "100%", height: "100%" }}>
           <div className='logo_width'>
             <img height={70} width={170} src={logo} alt='' />
-            {/* <p className="search_bar_title">Categories</p> */}
+           
           </div>
 
           <div className='search-box center_place f_flex'>
             <i className='fa fa-search'></i>
-            <input type='text' placeholder='Search and hit enter...' />
+            <input type='text' placeholder='Search your products here...' />
             <span>Search</span>
           </div>
-          {/* <div className="login_btn_searchbar">
-            <Button color="gradient" size="sm" rounded><Link to='/login'>Login</Link></Button>
-          </div> */}
 
           {/* <div className='icon'>
             <FontAwesomeIcon icon={'face-thermometer'}/>
